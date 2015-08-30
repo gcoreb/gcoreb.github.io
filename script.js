@@ -27,7 +27,7 @@ function alertIt() {
         swal("Nice!", "Task " +  count + ": " + inputValue, "success");
 
     $('.list').append("<div class='item'>" + "Task " + count + ": " + inputValue + "</div>");   
-
+    
         }
     ); 
     
