@@ -1,0 +1,10 @@
+div {
+    border: solid 5px;
+    font-family: arial;
+    font-size: 50px;
+    height: 60px;
+    width: 800px;
+    background: red;
+    border-radius: 300px;
+
+}
