@@ -2,6 +2,5 @@
 /*global $, jQuery, alert
 */
 $(document).ready(function () {
-alert("javascript sworking boiz");
-    
+swal({   title: "Error!",   text: "Here's my error message!",   type: "error",   confirmButtonText: "Cool" });
 })
