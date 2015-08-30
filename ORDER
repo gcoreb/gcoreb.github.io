@@ -1,0 +1,8 @@
+<!DOCTYPE HTML>
+<head></head>
+
+<body>
+<button id="clickToAdd">Click to add!</button>
+    <div class = "list">
+    </div>
+</body>
