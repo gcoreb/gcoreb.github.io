@@ -1,11 +1,16 @@
 
 #clickToAdd{
-    background: red;
+    background: grey;
     border-radius: 5px;
     font-size: 17px;
     font-weight: 500;
-    font-family: "Arial";    
+    font-family: "Arial";  
+    color: white;
+    height:100px;
+    width: 200px;
+    
 }
+
 
 .item{
     
