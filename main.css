@@ -1,14 +1,25 @@
+
 #clickToAdd{
     background:red;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: 500;
+    font-family: "Arial";    
 }
 
 .item{
-    height: 200px;
-    width: 200px;
+    
     font-size: 50px;
     text-align: center;
-    background: #90F;
-    margin: 50px;
-    border: solid 10px;
-    border-radius: 30px;
+    background-color: #8CD4F5;
+    color: white;
+    border: none;
+    box-shadow: none;
+    font-size: 17px;
+    font-weight: 500;
+    -webkit-border-radius: 4px;
+    border-radius: 5px;
+    padding: 10px 32px;
+    margin: 26px 5px 0 5px;
+    
 }
