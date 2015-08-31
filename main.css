@@ -1,3 +1,7 @@
+body {
+    background-image: url("")
+}
+
 
 #clickToAdd{
     background: grey;
@@ -6,17 +10,12 @@
     font-weight: 500;
     font-family: "Arial";  
     color: white;
-    height:100px;
-    width: 200px;
-    
+    height: 100px;
+    width:200px;
 }
 
-
 .item{
-    
-    font-size: 50px;
-    text-align: center;
-    background-color: #8CD4F5;
+ background-color: #8CD4F5;
     color: white;
     border: none;
     box-shadow: none;
@@ -27,4 +26,8 @@
     padding: 10px 32px;
     margin: 26px 5px 0 5px;
     
+}
+.mastfoot {
+    position: relative;
+    bottom: -130px;
 }
