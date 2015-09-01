@@ -1,5 +1,5 @@
 body {
-    background-image: url("")
+
 }
 
 
@@ -24,10 +24,16 @@ body {
     -webkit-border-radius: 4px;
     border-radius: 5px;
     padding: 10px 32px;
-    margin: 26px 5px 0 5px;
-    
+    margin: 26px 5px 0 5px; 
 }
 .mastfoot {
     position: relative;
     bottom: -130px;
 }
+
+
+
+
+
+
+

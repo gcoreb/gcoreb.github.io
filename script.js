@@ -41,19 +41,9 @@ function alertIt() {
 $('.list').sortable();
 var countTwo = 0;
 $(document).on('click', '.item', function(){
-       swal({   title: "Finish this task?",   text: "Warning: this task cannot be recovered",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, I'm done!",   closeOnConfirm: false }, function(isConfirm){   
-       if(isConfirm){
-            countTwo +=1;
-               $(this).remove('.item');
-
-        swal("Deleted!", "Yay! You've now accomplished " + countTwo + " task(s)!", "success"); 
-        }
-        else{
-        return;
-        }
-    });
+    $(this).remove('.item');
+});
     
-    });
 $('.list').click(function() {
 
    swal({   title: "Finish this task?",   text: "Warning: this task cannot be recovered",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, I'm done!",   closeOnConfirm: false }, function(isConfirm){   
