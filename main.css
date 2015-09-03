@@ -1,4 +1,5 @@
 /* homepage css*/
+
 html {
     overflow: hidden;
     height: 100%;
@@ -25,6 +26,7 @@ background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 29%,#207cca 69%,#7db
 .homep {
     border: solid 10px;
     border-radius: 50px;
+    margin: 50px;
 }
 .btn-home {
      margin-top: 15px;
@@ -43,5 +45,26 @@ background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 29%,#207cca 69%,#7db
 }
 .btn-home:hover {
     background: #FFF;
+}
+#priorityname{
+    color: black;
+    border: solid black 8px;
+    max-width: 430px;
+    text-align: auto 0;
+    margin: 0 auto;
+    -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+#priorityname:hover {
+    background: #000;
+    color: white;
+    border: solid white 8px;
+}
 
+#priorityp{
+    color: black;
+    margin: 25px;
+    letter-spacing: 0.3px;
 }
