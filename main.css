@@ -1,38 +1,52 @@
 /* homepage css*/
+body{
+    top: 0;
+    background: black;
+}
 .top {
     background-color: #ADD8E6;
-    padding: 100px;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    margin-bottom: -20px;
+}
+#nav-bar {
+    text-align: center;
+    width: 100%;
+    height: 0px;
+    background: transparent;
 }
 .aboutme {
     background-color: orange;
     padding-bottom: 400px;
-    padding-right: 20px;
+    margin-bottom: -10px;
 }
 
 #bryan {
     border: solid grey 5px;
     width: 425px;
     font-size: 63px;
+    margin-left: 150px;
 }
 
 #desc {
-    margin-left: 10px;
+    margin-left: 160px;
+    margin-bottom: 200px
 }
 
-ul {
+#nav {
+    width: 100%;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: right;
+    background-color: orange;
 }
 li {
     display: inline ;
-    padding: 0px 20px;
     font-size: 18px;
 }
-
+#aboutme {
+  background: orange;
+}
 .btn-home {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 500;
   color: #fff;
   background-color: transparent;
@@ -46,4 +60,18 @@ li {
 .btn-home:hover {
     background: #FFF;
 }
-
+.projects {
+    padding: 500px 50px;
+    
+}
+.navbar-fixed {
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  position: fixed;
+}
+#li-styling{
+    padding: 20px;
+    text-align: left;
+}
+ 

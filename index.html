@@ -24,18 +24,27 @@
 <div class="jumbotron top"id="top">
     <h1 id="bryan">BRYAN CHEN</h1>
     <p id="desc">student of the bay area</p>
-</div>
-<div class="jumbotron aboutme">
-<ul
+     <nav id="nav-bar">
+<ul>
     <li> <a href="#top"><button class="btn btn-home">home</button></a></li>     
      <li> <a href="#aboutme"><button class="btn btn-home">about me</button></a></li>         
-  <li> <a href="#"><button class="btn btn-home">projects</button></a></li>     
+  <li> <a href="#projects"><button class="btn btn-home">projects</button></a></li>     
       <li> <a href="mailto:brybryc.music@gmail.com"><button class="btn btn-home">contact</button></a></li> 
-      <li> <a href="mailto:brybryc.music@gmail.com"><button class="btn btn-home">more</button></a></li> 
+      <li> <a href="#"><button class="btn btn-home">more</button></a></li> 
       </ul>
+    </nav>
+      </div>
+
+     
+<div class="jumbotron aboutme" id="aboutme">
+
     <div class="col-md-2">
-    <h2 id="aboutme">Me, myself, and I:</h2>
+    <h2>Me, myself, and I:</h2>
     </div>
+</div>
+<div class="jumbotron projects" id="projects">
+    <h2>Order</h2>
+    <p>A way to expedite your productivity</p>
 </div>
 
 
@@ -57,19 +66,38 @@ $(function() {
       if (target.length) {
         $('html,body').animate({
           scrollTop: target.offset().top
-        }, 1000);
+        }, 500);
         return false;
       }
     }
   });
 });
 </script>
+<!-- button smooth-->
 <script>
 $(document).ready(function() {
     $(".btn").mouseup(function(){
     $(this).blur();
-})
-})
+});
+});
+$(document).ready(function() {
+  
+  $(window).scroll(function () {
+      //if you hard code, then use console
+      //.log to determine when you want the 
+      //nav bar to stick.  
+      console.log($(window).scrollTop())
+    if ($(window).scrollTop() >= 539) {
+      $('#nav-bar').addClass('navbar-fixed');
+      $('li').attr("id",'li-styling');    
+    }
+    if ($(window).scrollTop() <= 539) {
+      $('#nav-bar').removeClass('navbar-fixed');
+      $('li').removeAttr("id","li-styling");
+    }
+  });
+});
+
 </script>
 
 
