@@ -7,12 +7,11 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>BRYAN HOME</title>
      <!--Font awesome-->
-     <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">  
+     <link rel="stylesheet"  href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">  
     <!-- Bootstrap -->
     <link href="bootstrap.min.css" rel="stylesheet">
     <!-- MY CSS-->
     <link href="main.css" rel="stylesheet">
-   
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -29,34 +28,62 @@
     <li> <a href="#top"><button class="btn btn-home">home</button></a></li>     
      <li> <a href="#aboutme"><button class="btn btn-home">about me</button></a></li>         
   <li> <a href="#projects"><button class="btn btn-home">projects</button></a></li>     
+    <li> <a href="#more"><button class="btn btn-home">more</button></a></li> 
       <li> <a href="mailto:brybryc.music@gmail.com"><button class="btn btn-home">contact</button></a></li> 
-      <li> <a href="#"><button class="btn btn-home">more</button></a></li> 
+  
       </ul>
     </nav>
       </div>
 
      
 <div class="jumbotron aboutme" id="aboutme">
-
-    <div class="col-md-2">
+    <h1>Who am i?</h1>
+<div class=row>
+    <div class="col-md-4 violin">
+    <img class="img-circle berlinphil" src="berlinphil.jpg">
+    <h2>Violin</h2>    
+    <p>I've played violin since I was 6 years old. I joined SFSYO in 2014, touring Europe and playing on a variety of the greatest stages in the world. Pictured here: the Berlin Philharmonic</p>
+    </div>
+      <div class="col-md-4 memyselfandi">
+     <img class="img-circle bryanpic" src="bryan.png">
     <h2>Me, myself, and I:</h2>
+    <p>Hello! My name is Bryan and I enjoy learning about everything...</p>
+    </div>
+    <div class="col-md-4 fun">
+    <img class="img-circle brainstorm" src="https://cdn0.iconfinder.com/data/icons/seo-productivity-and-utilty/512/mind_brainstorm_power-512.png">
+    <h2>Learning</h2>
+    <p>I love coding, reading, calculus-ing, and debating.</p>
     </div>
 </div>
+    
+</div>
+      
 <div class="jumbotron projects" id="projects">
     <h2>Order</h2>
     <p>A way to expedite your productivity</p>
+    <a href="tasks.html"><button class="btn btn-home">Click to try ORDER! <i class="fa fa-calendar-check-o"></i>
+</button></a>
 </div>
-
-
+      
+<div class="jumbotron mores" id="more">
+      <h2>Customize my website :)</h2>
+        <p>Background color:</p>    
+        <input type="text" placeholder="i.e., maroon" id="reqcolor">
+        <input type="button" value=CHANGE! id="colorbtn"  >
+        <div id="squarediv"></div>
+ </div>
+      
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+
     <script src="bootstrap.min.js"></script>
-<script src="jquery.scrollTo.min.js"</script>
+      
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
  <!--MY JS-->
-    <script src="homescript.js"></script>
-<!--Smooth scroll courtesy of CSS-tricks-->
+\<!--Smooth scroll courtesy of CSS-tricks-->
 <script>
 $(function() {
   $('a[href*=#]:not([href=#])').click(function() {
@@ -66,7 +93,7 @@ $(function() {
       if (target.length) {
         $('html,body').animate({
           scrollTop: target.offset().top
-        }, 500);
+        }, 600);
         return false;
       }
     }
@@ -98,6 +125,27 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready (function () {
+    var reqcolor= $('#reqcolor');
+    $('#colorbtn').click(function () {
+        $('.mores').css("background-color", reqcolor.val())
+        if(reqcolor.val() == "secret") {
+            $('.mores').append("<p>You've found the secret red button.</p> <button id='infinite'>Don't click me</button>")
+        }
+        $('#infinite').click(function () {
+            for(var i=0; i>-1; i++) {
+                $(".mores").append("<p>troll" + i + "</p>")
+            };
+        });
+    });
+});
+                         
+
+  
+    $(document).ready(function () {
+             $('#squarediv').draggable();
+    });
+              
 </script>
 
 

@@ -3,6 +3,25 @@ body{
     top: 0;
     background: black;
 }
+.aboutme h1{
+    margin-top: -50px;
+    margin-bottom: 50px;
+}
+.bryanpic {
+    with: 200px;
+    height: 200px;
+}
+
+.berlinphil {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.brainstorm {
+    width: 200px;
+    height: 200px;
+}
+
 .top {
     background-color: #ADD8E6;
     padding-top: 200px;
@@ -17,19 +36,23 @@ body{
 }
 .aboutme {
     background-color: orange;
-    padding-bottom: 400px;
+    padding-bottom: 300px;
+    padding-left: 50px;
+    padding-right: 50px;
     margin-bottom: -10px;
+    padding-top: 250px;
+    text-align: center;
 }
 
 #bryan {
     border: solid grey 5px;
     width: 425px;
     font-size: 63px;
-    margin-left: 150px;
+    margin-left: 110px;
 }
 
 #desc {
-    margin-left: 160px;
+    margin-left: 140px;
     margin-bottom: 200px
 }
 
@@ -61,17 +84,36 @@ li {
     background: #FFF;
 }
 .projects {
-    padding: 500px 50px;
-    
+    padding: 250px 50px;
+    background-color: grey;
+    text-align: right;
+    margin-bottom: -1px;
 }
+.mores {
+    padding: 500px 50px;
+    background-color: skyblue;
+}
+
 .navbar-fixed {
   top: 0;
   z-index: 100;
   width: 100%;
   position: fixed;
+margin-left: -35px;
 }
 #li-styling{
-    padding: 20px;
+    padding: 30px 30px;
     text-align: left;
+    border-bottom: solid black 5px;
+    margin: -10px;
 }
- 
+#colorbtn{
+    border-radius: 5px;
+    background: transparent;
+}
+#squarediv {
+    height: 50px;
+    width: 50px;
+    border: solid black 5px;
+    margin: 50px;
+}
