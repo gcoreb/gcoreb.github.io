@@ -1,11 +1,8 @@
 /* homepage css*/
-body{
-    top: 0;
-    background: black;
-}
+
 .aboutme h1{
-    margin-top: -50px;
-    margin-bottom: 50px;
+    margin-top: -100px;
+    margin-bottom: 100px;
 }
 .bryanpic {
     with: 200px;
@@ -36,7 +33,7 @@ body{
 }
 .aboutme {
     background-color: orange;
-    padding-bottom: 300px;
+    padding-bottom: 100px;
     padding-left: 50px;
     padding-right: 50px;
     margin-bottom: -10px;
@@ -92,6 +89,7 @@ li {
 .mores {
     padding: 250px 50px;
     background-color: orangered;
+    margin-bottom: -10px;
 }
 
 .navbar-fixed {
@@ -119,25 +117,14 @@ margin-left: -35px;
 #colorbtn:hover {
     background: white;
 }
-#randombtn {
-    color: white;
-    font-weight: bold;
-    font-family: "Arial";
-    border-radius: 5px;
-    border: 5px;
-     background: white;
-    color: black;
-    -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-}
+
 #randombtn:hover {
       background: red;
 /*mozilla rainbow gradient*/	
 background: -moz-linear-gradient(135deg, red, blue);
 /*webkit rainbow gradient*/
 background: -webkit-linear-gradient(135deg, red, blue);
+    border: 1px solid red;
 }
 
 

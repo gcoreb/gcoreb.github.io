@@ -78,14 +78,15 @@
         <p>Background color:</p> 
     <div id="customize">
         <input type="text" placeholder="i.e., maroon" id="reqcolor">
-        <input type="button" value=CHANGE! id="colorbtn"  >        <button id="randombtn">RANDOM!</button>
+        <input type="button" value=CHANGE! id="colorbtn"  >        <button class="btn btn-home" id="randombtn">RANDOM!</button>
+         <button class="btn btn-home" id="strobe">Strobe :^)</button>
     </div>
  </div>
  </div>
       
   
 
-\<!--Smooth scroll courtesy of CSS-tricks-->
+<!--Smooth scroll courtesy of CSS-tricks-->
 <script>
 $(function() {
   $('a[href*=#]:not([href=#])').click(function() {
@@ -134,20 +135,31 @@ $(document).ready(function() {
 });
 //customization
 $(document).ready (function () {
+      
+    
+    function RNGcolor() {
+  var one = Math.floor(Math.random() *256);
+        var two = Math.floor(Math.random() *256);
+        var three = Math.floor(Math.random() *256);
+        var randomcolor = "rgba(" + one + "," + two + "," + three + ")";
+        $('.mores').css("background-color", randomcolor)
+    }
     var reqcolor= $('#reqcolor');
     $('#colorbtn').click(function () {
         $('.mores').css("background-color", reqcolor.val())
     });
     $('#randombtn').click(function () {
-        var one = Math.floor(Math.random() *256);
-        var two = Math.floor(Math.random() *256);
-        var three = Math.floor(Math.random() *256);
-        
-     
+        RNGcolor();
+    });
+    function strobe() {
+        RNGcolor();
+             setTimeout(strobe(), 1000)
 
-        var randomcolor = "rgba(" + one + "," + two + "," + three + ")";
-        $('.mores').css("background-color", randomcolor);
+    }
+    $('#strobe').click(function() {
+        strobe();
     })
+   
 });
                          
 
