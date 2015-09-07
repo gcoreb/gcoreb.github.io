@@ -12,6 +12,14 @@
     <link href="bootstrap.min.css" rel="stylesheet">
     <!-- MY CSS-->
     <link href="main.css" rel="stylesheet">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+    <script src="bootstrap.min.js"></script>
+      
+        <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -67,22 +75,16 @@
       
 <div class="jumbotron mores" id="more">
       <h2>Customize my website :)</h2>
-        <p>Background color:</p>    
+        <p>Background color:</p> 
+    <div id="customize">
         <input type="text" placeholder="i.e., maroon" id="reqcolor">
-        <input type="button" value=CHANGE! id="colorbtn"  >
-        <div id="squarediv"></div>
+        <input type="button" value=CHANGE! id="colorbtn"  >        <button id="randombtn">RANDOM!</button>
+    </div>
+ </div>
  </div>
       
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+  
 
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-
-    <script src="bootstrap.min.js"></script>
-      
-        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
- <!--MY JS-->
 \<!--Smooth scroll courtesy of CSS-tricks-->
 <script>
 $(function() {
@@ -105,7 +107,13 @@ $(function() {
 $(document).ready(function() {
     $(".btn").mouseup(function(){
     $(this).blur();
-});
+    });
+    $('#randombtn').mouseup(function() {
+    $(this).blur();
+    });
+    $('#colorbtn').mouseup(function () {
+    $(this).blur();
+    });
 });
 $(document).ready(function() {
   
@@ -124,28 +132,27 @@ $(document).ready(function() {
     }
   });
 });
-
+//customization
 $(document).ready (function () {
     var reqcolor= $('#reqcolor');
     $('#colorbtn').click(function () {
         $('.mores').css("background-color", reqcolor.val())
-        if(reqcolor.val() == "secret") {
-            $('.mores').append("<p>You've found the secret red button.</p> <button id='infinite'>Don't click me</button>")
-        }
-        $('#infinite').click(function () {
-            for(var i=0; i>-1; i++) {
-                alert("window #" + i);
-            };
-        });
     });
+    $('#randombtn').click(function () {
+        var one = Math.floor(Math.random() *256);
+        var two = Math.floor(Math.random() *256);
+        var three = Math.floor(Math.random() *256);
+        
+     
+
+        var randomcolor = "rgba(" + one + "," + two + "," + three + ")";
+        $('.mores').css("background-color", randomcolor);
+    })
 });
                          
 
   
-    $(document).ready(function () {
-             $('#squarediv').draggable();
-             $('#squarediv').resizable();
-    });
+
               
 </script>
 

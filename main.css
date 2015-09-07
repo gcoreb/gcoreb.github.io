@@ -90,8 +90,8 @@ li {
     margin-bottom: -1px;
 }
 .mores {
-    padding: 500px 50px;
-    background-color: skyblue;
+    padding: 250px 50px;
+    background-color: orangered;
 }
 
 .navbar-fixed {
@@ -110,10 +110,43 @@ margin-left: -35px;
 #colorbtn{
     border-radius: 5px;
     background: transparent;
+    border: solid black 5px;
+    -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2 ease-in-out;
 }
+#colorbtn:hover {
+    background: white;
+}
+#randombtn {
+    color: white;
+    font-weight: bold;
+    font-family: "Arial";
+    border-radius: 5px;
+    border: 5px;
+     background: white;
+    color: black;
+    -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+#randombtn:hover {
+      background: red;
+/*mozilla rainbow gradient*/	
+background: -moz-linear-gradient(135deg, red, blue);
+/*webkit rainbow gradient*/
+background: -webkit-linear-gradient(135deg, red, blue);
+}
+
+
 #squarediv {
     height: 50px;
     width: 50px;
     border: solid black 5px;
     margin: 50px;
+}
+#customize {
+    font-size: 25px;
 }
