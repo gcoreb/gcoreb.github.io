@@ -75,11 +75,14 @@
       
 <div class="jumbotron mores" id="more">
       <h2>Customize my website :)</h2>
-        <p>Background color:</p> 
+        <p>Background color:</p>   
     <div id="customize">
         <input type="text" placeholder="i.e., maroon" id="reqcolor">
-        <input type="button" value=CHANGE! id="colorbtn"  >        <button class="btn btn-home" id="randombtn">RANDOM!</button>
-         <button class="btn btn-home" id="strobe">Strobe :^)</button>
+        <input type="button" value=CHANGE! id="colorbtn"  >
+        <p id="line">Have fun :o)</p>
+        <button class="btn btn-home" id="randombtn">RANDOM!</button>
+      
+        <button class="btn btn-home" id="strobe">Strobe :^)</button>
     </div>
  </div>
  </div>
@@ -154,9 +157,24 @@ $(document).ready (function () {
         RNGcolor();
     });
   
+    var x= true;
+    var stop = 1;
+    
     $('#strobe').click(function() {
-     var strobe = setInterval(function() {RNGcolor()}, 300);
         
+        if(x){
+    stop = setInterval(RNGcolor, 300);
+             x = false;
+            $('#strobe').empty().append('STROBING');
+            $('#strobe').css("background-color", "lightgreen");
+            $('#strobe').css("color", "black");
+        }
+        else{
+        clearInterval(stop);
+           x=true;
+            $('#strobe').empty().append('STROBE?');
+            $('#strobe').css("background-color", "red");
+        }
     })
    
 });
