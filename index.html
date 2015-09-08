@@ -144,20 +144,19 @@ $(document).ready (function () {
         var randomcolor = "rgba(" + one + "," + two + "," + three + ")";
         $('.mores').css("background-color", randomcolor)
     }
-    var reqcolor= $('#reqcolor');
+        
     $('#colorbtn').click(function () {
+            var reqcolor= $('#reqcolor');
+
         $('.mores').css("background-color", reqcolor.val())
     });
     $('#randombtn').click(function () {
         RNGcolor();
     });
-    function strobe() {
-        RNGcolor();
-             setTimeout(strobe(), 1000)
-
-    }
+  
     $('#strobe').click(function() {
-        strobe();
+     var strobe = setInterval(function() {RNGcolor()}, 300);
+        
     })
    
 });
