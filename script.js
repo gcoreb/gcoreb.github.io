@@ -40,20 +40,24 @@ function alertIt() {
 }) //end of click event
 $('.list').sortable();
 var countTwo = 0;
-$(document).on('click', '.item', function(){
-    $(this).remove('.item');
-});
-    
-$('.list').click(function() {
 
-   swal({   title: "Finish this task?",   text: "Warning: this task cannot be recovered",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, I'm done!",   closeOnConfirm: false }, function(isConfirm){   
-       if(isConfirm){
+    
+    
+    
+$(document).on('click','.item', function() {
+
+    var $this = $(this);
+    swal({   title: "Finish this task?",   text: "Warning: this task cannot be recovered",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, I'm done!",   closeOnConfirm: false }, function(isConfirm){   
+     if(isConfirm){
+         $this.remove();
             countTwo +=1;
         swal("Deleted!", "Yay! You've now accomplished " + countTwo + " task(s)!", "success"); 
+           
         }
-        else{
-        return;
-        }
+       else{
+return;
+       }
+        
     });
 })
 

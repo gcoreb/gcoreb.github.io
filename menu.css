@@ -1,0 +1,42 @@
+h1{
+    text-align: center;
+    font-size: 61px;
+}
+a{
+color: inherit;
+}
+body {
+    background: orange;
+}
+#container {    
+    background-color: inherit;
+    width: 50px;
+    position: relative;
+    display: block;
+margin-left: 390px;
+    -webkit-transform: rotate(45deg) skew(-15deg, -15deg);
+    -moz-transform: rotate(45deg) skew(15deg, 15deg);
+}
+li{
+    border-radius: 20px;
+    list-style-type: none;
+    background: skyblue;
+    color: black;
+    height: 90px;
+    width: 90px;
+    padding-left: 20px;
+    padding-top: 20px;
+    box-shadow: 10px 10px 20px;
+    -webkit-transition: all linear 0.155s;
+    font-family: "Lucida Grande";
+    font-weight: bold;
+    }
+.text {
+ 
+    
+}
+li:hover{
+    background: lavender;
+    color: skyblue;
+    transform: translate(-13px, -13px);
+}

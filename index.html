@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>BRYAN HOME</title>
-     <!--Font awesome-->
-     <link rel="stylesheet"  href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">  
+
     <!-- Bootstrap -->
     <link href="bootstrap.min.css" rel="stylesheet">
     <!-- MY CSS-->
     <link href="main.css" rel="stylesheet">
+        <!--Font awesome-->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
@@ -68,9 +70,12 @@
       
 <div class="jumbotron projects" id="projects">
     <h2>Order</h2>
-    <p>A way to expedite your productivity</p>
-    <a href="tasks.html"><button class="btn btn-home">Click to try ORDER! <i class="fa fa-calendar-check-o"></i>
+    <p>A simple + beautiful to-do list</p>
+    <a href="tasks.html"><button class="btn btn-home">Click to try ORDER! 
+<i class="fa fa-arrow-circle-right"></i>
+
 </button></a>
+    
 </div>
       
 <div class="jumbotron mores" id="more">
@@ -121,11 +126,9 @@ $(document).ready(function() {
 });
 $(document).ready(function() {
   
-  $(window).scroll(function () {
-      //if you hard code, then use console
-      //.log to determine when you want the 
-      //nav bar to stick.  
+  $(window).scroll(function () { 
       console.log($(window).scrollTop())
+      //539 is the hard code height
     if ($(window).scrollTop() >= 539) {
       $('#nav-bar').addClass('navbar-fixed');
       $('li').attr("id",'li-styling');    
@@ -139,14 +142,18 @@ $(document).ready(function() {
 //customization
 $(document).ready (function () {
       
-    
-    function RNGcolor() {
-  var one = Math.floor(Math.random() *256);
+    function changeColor () {
+        var one = Math.floor(Math.random() *256);
         var two = Math.floor(Math.random() *256);
         var three = Math.floor(Math.random() *256);
         var randomcolor = "rgba(" + one + "," + two + "," + three + ")";
-        $('.mores').css("background-color", randomcolor)
+        return randomcolor;
     }
+    
+    function RNGcolor() {
+        $('.mores').css("background-color", changeColor());
+    }
+   
         
     $('#colorbtn').click(function () {
             var reqcolor= $('#reqcolor');
@@ -154,7 +161,7 @@ $(document).ready (function () {
         $('.mores').css("background-color", reqcolor.val())
     });
     $('#randombtn').click(function () {
-        RNGcolor();
+            RNGcolor();
     });
   
     var x= true;
