@@ -3,7 +3,7 @@ h1{
     font-size: 61px;
 }
 a{
-color: inherit;
+color: inherit !important;
 }
 body {
     background: orange;
