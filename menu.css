@@ -9,18 +9,21 @@ body {
     background: orange;
 }
 #container {    
-    background-color: inherit;
+    background-color: red;
     width: 50px;
     position: relative;
     display: block;
 margin-left: 390px;
     -webkit-transform: rotate(45deg) skew(-15deg, -15deg);
     -moz-transform: rotate(45deg) skew(15deg, 15deg);
+    border: solid 5px;
+    width: 110px;
+    height: 650px;
 }
 li{
     border-radius: 20px;
     list-style-type: none;
-    background: skyblue;
+    background: rgba(255,255,255,0.5);
     color: black;
     height: 90px;
     width: 90px;
@@ -30,13 +33,13 @@ li{
     -webkit-transition: all linear 0.155s;
     font-family: "Lucida Grande";
     font-weight: bold;
+    border: solid black 2px;
+
     }
-.text {
- 
-    
-}
+
 li:hover{
-    background: lavender;
-    color: skyblue;
+    background: transparent;
+    color: white;
     transform: translate(-13px, -13px);
+    
 }
