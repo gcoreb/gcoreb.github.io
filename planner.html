@@ -54,10 +54,12 @@
     .controller('yesCtrl', function($scope) {
         
 $scope.checkkey = function (event) {
-    if(event.keyCode == 61) {
+    if(event.keyCode == 13) {
         $scope.save();
-        document.getElementById("textarea").value = "";
+    document.getElementById("textarea").value = "";
+
     }
+    
 }
         $scope.arr = {};
          $scope.processInput = function(str) {
