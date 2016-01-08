@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <title>Hello World</title>
      <style>
-
     </style>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
 
@@ -20,7 +19,7 @@
         <div class="nav-wrapper">
     <a class="brand-logo left">Planner</a>
             <ul class="right">
-            <li ><a onclick="alert('Implementation of simpleStorage. Planner with no data sent; it's all local and it's fast.)">About</a></li>
+            <li ><a onclick="alert('Implementation of simpleStorage. Planner with no data sent— it is all local and it is fast.');">About</a></li>
             </ul>
         </div>
     </nav>
@@ -42,7 +41,7 @@
                 </div>
             </div>
         <h3>Currently using {{size}} characters</h3>
-        <p>To use, separate title and body with // and submit or hit enter when done. Typing " Japanese//Do homework! = " will create a new tag with Japanese as the title and Do homework! as the body.</p>
+        <p>To use, separate title and body with // and submit or hit enter when done. Typing " Japanese//Do homework! " will create a new tag with Japanese as the title and Do homework! as the body.</p>
         <p>If no storage is available click here: <a href="#" ng-click="clear()">CLEAR DATA</a></p>
         </div>
     </div>
@@ -57,7 +56,6 @@ $scope.checkkey = function (event) {
     if(event.keyCode == 13) {
         $scope.save();
     document.getElementById("textarea").value = "";
-
     }
     
 }
@@ -100,7 +98,6 @@ $scope.checkkey = function (event) {
         }
         $scope.size = simpleStorage.storageSize();
         
-
     })
 </script>
    
