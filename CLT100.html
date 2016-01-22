@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>CLT Visualization</title>
+    <meta name="description" content="">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <style type="text/css">
+
+        h1{
+            font-family: "Arial";
+            text-align: center;
+            color: black;
+        }
+        body {
+  font: 15px sans-serif;
+}
+
+.bar rect {
+  fill: steelblue;
+  shape-rendering: crispEdges;
+}
+
+.bar text {
+  fill: #fff;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+button {
+  font-size: 25px;
+  font-weight: 500;
+  color: "purple";
+  background-color: transparent;
+  border-color: #fff;
+  border-color: rgba(255,255,255,.5);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+    border-radius: 10px;
+}
+button:hover {
+    background: #FFF;
+}
+    </style>
+</head>
+
+<body>
+    <h1>Visualizing the Central Limit Theorem (for means)</h1>
+    <br/>
+    Delay:<input id="input">
+    <button type="submit" onclick="start()">Start</button>
+    <br/>
+    <container></container>
+    <data></data>
+    <histogram></histogram>
+</body>
+
+<script type="text/javascript">
+var data = [
+[65,97,85,83,75,58,95,66,90,54],[73,78,93,92,99,82,92,82,50,74],
+    [93,92,71,55,55,83,75,80,88,89],[73,55,51,65,98,76,58,75,54,81],[82,89,92,97,85,63,59,83,94,88]
+
+];
+         var histogramData = [];
+
+
+var height = 360,
+    width = 750;
+
+var svg = d3.select('container').append('svg')
+    .attr('height', height)
+    .attr('width', width)
+  .append('g')
+    .attr('transform', 'translate(30, 30)');
+
+// Bind each nested array to a group element.
+// This will create 3 group elements, each of which will hold 3 circles.
+var circleRow = svg.selectAll('.row')
+    .data(data)
+  .enter().append('g')
+    .attr('transform', function(d, i) {
+        return 'translate(30,' + i * 70 + ')';
+    });
+
+// For each group element 3 circle elements will be appended.
+// This is done by binding each element in a nested array to a
+// circle element.
+circleRow.selectAll('.circle')
+    .data(function(d, i) { return data[i]; })
+  .enter().append('circle')
+    .attr('r', "30")
+    .attr('cx', function(d, i) { return i * 70; })
+    .attr('cy',10)
+.attr("fill", "white")
+.attr("stroke", "black")
+.attr("stroke-width", 3)
+    circleRow.selectAll('.circle')
+    .data(function(d,i){return data[i];})
+    .enter().append("text")
+    .text(function(d){return d})
+    .attr("x", function(d, i) { return i * 70 -8; })
+    .attr("y", 15)
+    .style('font-family', 'Arial');
+    var picked = [];
+var sample = [];
+         var dataSvg =  d3.select('data').append('svg')
+     .attr('height', 200)
+     .attr('width', 800);
+ var select_samples = function(svg) {
+      sample = [];
+        var circles = svg.selectAll("circle");
+circles.attr('fill', "white");   
+        for(var i = 0; i < 5 /*sampleSize*/; i++){
+            index_in_circles = Math.floor(Math.random()*circles[0].length);
+            selected_point = d3.select(circles[0][index_in_circles])
+selected_point.attr('fill', 'red');
+    picked.push(circles[0][index_in_circles].__data__ );
+            sample.push(selected_point[0][0]);
+        }
+      
+
+     dataSvg.html("");
+     dataSvg.selectAll('.sample')
+     .data(sample).enter()
+     .append("circle")
+     .attr("r", 30)
+     .attr("cy", 100)
+     .attr('cx', function(d, i) { return i * 70 -400; }) //60
+     .attr("stroke", "black")
+     .attr("stroke-width", 3)
+     .attr('fill', 'red');
+     var transCount = 0;
+ dataSvg.selectAll('.sample').data(sample).enter().append('text')
+.text(function(d,i){return sample[i].__data__})
+    .attr("x", function(d, i) { return i * 70 -400; }) //50
+    .attr("y", 103);
+    dataSvg.selectAll('circle')
+    .each(function(){
+        transCount++;
+    })
+    .transition()
+    .delay(200)
+    .duration(500)
+    .attr('transform', 'translate(660)')
+    .each("end", function(){
+        transCount --;
+        if(!transCount){
+            change();
+        }
+    });
+     
+      dataSvg.selectAll('text')
+    .transition()
+    .delay(200)
+    .duration(500)
+    .attr('transform', 'translate(650)');
+ function change() {
+            dataSvg.selectAll('circle').transition()
+        .delay(300)
+        .attr("cx", -260);
+            dataSvg.selectAll('text').transition()
+        .delay(300)
+        .attr("x", -260).remove()
+            .each('end', function() {
+                dataSvg.append('text').text(avg(sample,5))
+           .attr("x", 390)
+           .attr("y", 103);
+            })
+            histogramData.push(avg(sample,5));
+     }
+function avg(sample,number){
+    var total = 0;
+    for(var i=0; i<number; i++){
+        total += sample[i].__data__;
+    }
+    return total/number;
+}
+     
+//var sampled = d3.select("data").selectAll('lol');
+//d3.select("data").html("");
+//     sampled.data(picked).enter()
+//      .append("text")
+//      .text(function(d){return d})
+//     .style("padding", "15px");
+     console.log(histogramData);
+ 
+ }
+
+
+
+
+function run(){
+    var svg = d3.select("svg");
+        select_samples(svg);
+}
+    
+    function startIt(time) {
+setInterval(function(){
+    run();
+    updateHistogram( );
+}, time)
+    }
+    document.getElementById('input').value = 2500;
+   function start(){startIt((document.getElementById('input').value))};
+// Generate a Bates distribution of 10 random variables.
+function updateHistogram(){
+    d3.select("histogram").html("");
+var values = histogramData;
+
+// A formatter for counts.
+var formatCount = d3.format(",.0f");
+
+var margin = {top: 10, right: 30, bottom: 30, left: 30},
+    width = 960 - margin.left - margin.right,
+    height = 200 - margin.top - margin.bottom;
+
+var x = d3.scale.linear()
+    .domain([0, 100])
+    .range([0, width]);
+
+// Generate a histogram using twenty uniformly-spaced bins.
+var data = d3.layout.histogram()
+    .bins(x.ticks(30))
+    (values);
+
+var y = d3.scale.linear()
+    .domain([0, d3.max(data, function(d) { return d.y; })])
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var svg = d3.select("histogram").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var bar = svg.selectAll(".bar")
+    .data(data)
+  .enter().append("g")
+    .attr("class", "bar")
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+
+bar.append("rect")
+    .attr("x", 1)
+    .attr("width", x(data[0].dx) - 1)
+    .attr("height", function(d) { return height - y(d.y); });
+
+bar.append("text")
+    .attr("dy", ".75em")
+    .attr("y", 6)
+    .attr("x", x(data[0].dx) / 2)
+    .attr("text-anchor", "middle")
+    .text(function(d) { return formatCount(d.y); });
+
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+}
+</script>
+
+</html>
