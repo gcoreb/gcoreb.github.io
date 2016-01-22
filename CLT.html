@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>CLT Visualization</title>
+    <meta name="description" content="">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <style type="text/css">
+        body{
+            background-color: lightcyan;
+        }
+        h1{
+            font-family: "Arial";
+            text-align: center;
+            color: black;
+        }
+button {
+  font-size: 25px;
+  font-weight: 500;
+  color: "purple";
+  background-color: transparent;
+  border-color: #fff;
+  border-color: rgba(255,255,255,.5);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+    border-radius: 10px;
+}
+button:hover {
+    background: #FFF;
+}
+    </style>
+</head>
+
+<body>
+    <h1>Visualizing the Central Limit Theorem (for means)</h1>
+    <button id="button" onclick='var svg = d3.select("svg");
+        select_samples(svg);'>Take a random sample</button>
+    <br/>
+    <container></container>
+    <data></data>
+    <histogram></histogram>
+</body>
+
+<script type="text/javascript">
+var data = [
+    [10,20,30,40,50,20,30,15,16,17],
+    [10,20,30,40,50,20,30,15,16,17],
+    [10,20,30,40,50,20,30,15,16,17],
+    [10,20,30,40,50,20,30,15,16,17],
+    [10,20,30,40,50,20,30,15,16,17],
+];
+
+var height = 360,
+    width = 750;
+
+var svg = d3.select('container').append('svg')
+    .attr('height', height)
+    .attr('width', width)
+  .append('g')
+    .attr('transform', 'translate(30, 30)');
+
+// Bind each nested array to a group element.
+// This will create 3 group elements, each of which will hold 3 circles.
+var circleRow = svg.selectAll('.row')
+    .data(data)
+  .enter().append('g')
+    .attr('transform', function(d, i) {
+        return 'translate(30,' + i * 70 + ')';
+    });
+
+// For each group element 3 circle elements will be appended.
+// This is done by binding each element in a nested array to a
+// circle element.
+circleRow.selectAll('.circle')
+    .data(function(d, i) { return data[i]; })
+  .enter().append('circle')
+    .attr('r', "30")
+    .attr('cx', function(d, i) { return i * 70; })
+    .attr('cy',10)
+.attr("fill", "white")
+.attr("stroke", "black")
+.attr("stroke-width", 3)
+    circleRow.selectAll('.circle')
+    .data(function(d,i){return data[i];})
+    .enter().append("text")
+    .text(function(d){return d})
+    .attr("x", function(d, i) { return i * 70 -8; })
+    .attr("y", 15)
+    .style('font-family', 'Arial');
+    var picked = [];
+var sample = [];
+         var dataSvg =  d3.select('data').append('svg')
+     .attr('height', 400)
+     .attr('width', 800);
+ var select_samples = function(svg) {
+      sample = [];
+        var circles = svg.selectAll("circle");
+circles.attr('fill', "white");   
+        for(var i = 0; i < 5 /*sampleSize*/; i++){
+            index_in_circles = Math.floor(Math.random()*circles[0].length);
+            selected_point = d3.select(circles[0][index_in_circles])
+selected_point.attr('fill', 'red');
+    picked.push(circles[0][index_in_circles].__data__ );
+            sample.push(selected_point[0][0]);
+        }
+      
+
+     dataSvg.html("");
+     dataSvg.selectAll('.sample')
+     .data(sample).enter()
+     .append("circle")
+     .attr("r", 30)
+     .attr("cy", 100)
+     .attr('cx', function(d, i) { return i * 70 -400; }) //60
+     .attr("stroke", "black")
+     .attr("stroke-width", 3)
+     .attr('fill', 'red');
+ dataSvg.selectAll('.sample').data(sample).enter().append('text')
+.text(function(d,i){return sample[i].__data__})
+    .attr("x", function(d, i) { return i * 70 -400; }) //50
+    .attr("y", 103);
+    dataSvg.selectAll('circle')
+    .transition()
+    .delay(200)
+    .duration(500)
+    .attr('transform', 'translate(660)');
+      dataSvg.selectAll('text')
+    .transition()
+    .delay(200)
+    .duration(500)
+    .attr('transform', 'translate(650)');
+//var sampled = d3.select("data").selectAll('lol');
+//d3.select("data").html("");
+//     sampled.data(picked).enter()
+//      .append("text")
+//      .text(function(d){return d})
+//     .style("padding", "15px");
+     console.log(sample);
+ 
+ }
+
+ 
+document.getElementById('button').addEventListener('mousedown', function(e){ e.preventDefault(); }, false);
+
+</script>
+
+</html>
