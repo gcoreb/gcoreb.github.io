@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analyze practice</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+</head>
+<body>
+<textarea style="height: 100px">
+AQWERTY BQWERTY AQWERTY BQWERTY</textarea>   
+<br/>
+<button id="start">Start</button>
+<div id="confirmed"></div>
+<button id="analyze">analyze</button>
+</body>
+<script type="text/javascript">
+    
+ $(document).ready(function(){
+         var arrayA = [];
+     var arrayB = [];
+var textFill = "";
+     $('#start').click(function(){
+         arrayA = [];
+         arrayB = [];
+         textFill = $('textarea').val();
+         console.log(textFill);
+         $('#confirmed').html(textFill);
+         var words = $("#confirmed").text().split(" ");
+         $("#confirmed").empty();
+         console.log(words);
+         $.each(words, function(i, v) {
+            $("#confirmed").append($("<div class='noob'>").text(v));
+         });
+     })
+     $('#confirmed').click(function(){ 
+         if (window.getSelection) { /* Firefox, Opera, Google Chrome and Safari */
+var new_elem = document.createElement('strong'); 
+             new_elem.setAttribute("class","highlighted");
+var sel = window.getSelection ();
+sel.modify('move','backward','word');
+sel.modify('extend','forward','word');
+var range = document.createRange();
+range = sel.getRangeAt(0); /* get the text selected. Firefox supports multiple selections, but we will get the first */
+txt = document.createTextNode(range.toString()); /* create a text node that contains the selected text */
+new_elem.appendChild(txt); /* append the node to the strong element*/
+range.deleteContents(); /* delete the current selection */
+range.insertNode(new_elem); /* add the newly created element */
+sel.removeAllRanges();
+}
+    })
+     $('#analyze').click(function(){
+            $(".noob").each(function(i, obj){
+                if(obj.children.length > 0){
+         arrayA.push(obj.firstElementChild.innerHTML);
+                    }
+                else{
+                    arrayB.push(this.innerHTML);
+                }
+     })
+     console.log(arrayA);
+         console.log(arrayB);
+     })
+  
+ })
+</script>
+</html>
