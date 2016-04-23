@@ -10,7 +10,7 @@
 </head>
 <body>
 <textarea style="height: 100px">
-AQWERTY BQWERTY AQWERTY BQWERTY</textarea>   
+ULTRALIGHTBEAM A SONG BY DRAKE KUSHAL A GREAT MARI TROMPE</textarea>   
 <br/>
 <button id="start">Start</button>
 <div id="confirmed"></div>
@@ -52,16 +52,38 @@ range.deleteContents(); /* delete the current selection */
 range.insertNode(new_elem); /* add the newly created element */
 sel.removeAllRanges();
 }
+    
     })
+     var sustring = "";
+                   var indecies = [];
      $('#analyze').click(function(){
+         indecies = [];
             $(".noob").each(function(i, obj){
                 if(obj.children.length > 0){
          arrayA.push(obj.firstElementChild.innerHTML);
+                    indecies.push(i);
                     }
-                else{
-                    arrayB.push(this.innerHTML);
-                }
+//                else{
+//                    arrayB.push(this.innerHTML);
+//                } 
      })
+            indecies.push($('.noob').size());
+         console.log($('.noob').size())
+            //indecies[0] = 1, indecies[1] = 5
+            var j = 0;
+         var d = 0;
+        while(j<indecies.length-1){
+            d= indecies[j];
+        while(d<indecies[j+1]-1){
+         sustring += $(".noob").eq(d+1).text();
+        d++;
+        }
+        arrayB.push(sustring);
+            console.log(sustring);
+            sustring = "";
+        j++;
+        }
+         console.log(indecies);
      console.log(arrayA);
          console.log(arrayB);
          $("#results").html("A:" + arrayA);
