@@ -75,7 +75,8 @@ sel.removeAllRanges();
         while(j<indecies.length-1){
             d= indecies[j];
         while(d<indecies[j+1]-1){
-         sustring += $(".noob").eq(d+1).text();
+         sustring += " ";
+            sustring += $(".noob").eq(d+1).text();
         d++;
         }
         arrayB.push(sustring);
