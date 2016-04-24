@@ -174,7 +174,7 @@ function showProgress(p) {
             type:"POST",
             headers: 
             {
-               "Authorization": "Basic QQXakcxCJKyDQfkrppmuGr");
+               "Authorization": "Basic QQXakcxCJKyDQfkrppmuGr"
              //    request.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Origin");
 	            // request.setRequestHeader("Access-Control-Allow-Headers", "X-Requested-With");
 	            // request.setRequestHeader("Access-Control-Allow-Origin", "*");
