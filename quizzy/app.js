@@ -169,12 +169,12 @@ function showProgress(p) {
 		var code = currentURL.substring(currentURL.indexOf("code=")+5);
 
 		//alert('about to post req');
-		var url ="https://crossorigin.me/https://api.quizlet.com/oauth/token?grant_type=authorization_code&code="+code+"&redirect_uri=http://kushaltirumala.github.io/quizzy/index.html";
+		var url ="https://crossorigin.me/https://api.quizlet.com/oauth/token?grant_type=authorization_code&code="+code+"&redirect_uri=http://gcoreb.github.io/quizzy/analyze.html";
 		 $.ajax({
             type:"POST",
             beforeSend: function (request)
             {
-                request.setRequestHeader("Authorization", "Basic NG1zVThQNGMyQjpjbVRYeXB1N1FZcFUzN2NTYnp1ejJI");
+                request.setRequestHeader("Authorization", "Basic QQXakcxCJKyDQfkrppmuGr");
              //    request.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Origin");
 	            // request.setRequestHeader("Access-Control-Allow-Headers", "X-Requested-With");
 	            // request.setRequestHeader("Access-Control-Allow-Origin", "*");
@@ -251,7 +251,7 @@ function showProgress(p) {
 
 	function quizletAuth(username, pass) {
 		var str = makeid();
-		var redirectURI = "https://quizlet.com/authorize?response_type=code&client_id=4msU8P4c2B&scope=write_set&state="+str;		
+		var redirectURI = "https://quizlet.com/authorize?response_type=code&client_id=6DNHhMVpeH&scope=write_set&state="+str;		
 		var currentURL = window.location.href;
 		console.log(currentURL.indexOf("code"));
 		window.open(redirectURI,'auth time');
