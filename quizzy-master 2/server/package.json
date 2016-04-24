@@ -1,0 +1,13 @@
+{
+  "name": "quizzy",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "*",
+    "node-fs":"0.1.7"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
