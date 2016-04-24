@@ -169,17 +169,16 @@ function showProgress(p) {
 		var code = currentURL.substring(currentURL.indexOf("code=")+5);
 
 		//alert('about to post req');
-		var url ="https://crossorigin.me/https://api.quizlet.com/oauth/token?grant_type=authorization_code&code="+code+"&redirect_uri=http://gcoreb.github.io/quizzy/analyze.html";
+		var url ="https://api.quizlet.com/oauth/token?grant_type=authorization_code&code="+code+"&redirect_uri=http://gcoreb.github.io/quizzy/analyze.html";
 		 $.ajax({
             type:"POST",
-            beforeSend: function (request)
+            headers: 
             {
-                request.setRequestHeader("Authorization", "Basic QQXakcxCJKyDQfkrppmuGr");
+               "Authorization": "Basic QQXakcxCJKyDQfkrppmuGr");
              //    request.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Origin");
 	            // request.setRequestHeader("Access-Control-Allow-Headers", "X-Requested-With");
 	            // request.setRequestHeader("Access-Control-Allow-Origin", "*");
 	            // request.setRequestHeader("X-Requested-With", "*");
-                request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
             },
             url: url,
             success: function(msg) {
