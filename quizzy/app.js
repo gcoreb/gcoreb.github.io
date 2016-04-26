@@ -160,15 +160,13 @@ function continueQuizletAuth() {
 	}
 
 	function submitUserInfo() {
-		
 			quizletAuth("wrong", "wrong");
-		
 	}
 
 
 	function quizletAuth(username, pass) {
 		var str = makeid();
-		var redirectURI = "https://quizlet.com/authorize?response_type=code&client_id=6DNHhMVpeH &scope=write_set&state="+str;		
+		var redirectURI = "https://quizlet.com/authorize?response_type=code&client_id=6DNHhMVpeH&scope=write_set&state="+str;		
 		var currentURL = window.location.href;
 		console.log(currentURL.indexOf("code"));
 		window.open(redirectURI,'auth time');
