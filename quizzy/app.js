@@ -102,9 +102,8 @@ function showProgress(p) {
             type:"GET",
             url: "http://localhost:3000/quizlet?code="+code,
             success: function(msg) {
-            	alert('success');
+            	alert(msg.username);
             	console.log(msg);
-                alert("welcome" + msg.username);
             },
             error:function(error){
             	alert('error');
