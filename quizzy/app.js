@@ -237,7 +237,7 @@ function showProgress(p) {
 		console.log(msg);
 		var x = window.confirm("Would you like to go to your set?");
 		if(x){
-			window.location = msg.url;
+			location = msg.url;
 		}
 		else{
 			alert(msg);
