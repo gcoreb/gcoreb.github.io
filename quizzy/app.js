@@ -94,28 +94,23 @@ function showProgress(p) {
         return canvasbanana;
     }
 
-	function continueQuizletAuth() {
+function continueQuizletAuth() {
 		var currentURL = window.location.href;
 		var code = currentURL.substring(currentURL.indexOf("code=")+5);
 
-		//alert('about to post req');
-		var url ="https://api.quizlet.com/oauth/token?grant_type=authorization_code&code="+code+"&redirect_uri=http://bryanchen.ml/quizzy/analyze.html";
-		 $.ajax({
-            type:"POST",
-            beforeSend: function (request)
-            {
-                request.setRequestHeader("Authorization", "Basic NkROSGhNVnBlSDptNnNFZ05nUEY5UTdleEJWSGFlVGNL");
-                //request.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-            },
-            url: url,
+  		$.ajax({
+            type:"GET",
+            url: "http://localhost:3000/quizlet?code="+code,
             success: function(msg) {
-                console.log(msg);
+            	alert('success');
+            	console.log(msg);
+                console.log(msg.daisytodd);
             },
             error:function(error){
+            	alert('error');
             	console.log(error);
             }
-    });
-
+    	});
 	}
 
 	function form2Json(str)
