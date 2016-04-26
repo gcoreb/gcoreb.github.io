@@ -102,7 +102,7 @@ function showProgress(p) {
             type:"GET",
             url: "http://localhost:3000/quizlet?code="+code,
             success: function(msg) {
-            	alert(msg.username);
+            	alert('success' + msg.username);
             	console.log(msg);
             },
             error:function(error){
@@ -200,5 +200,50 @@ function showProgress(p) {
 
 		    return text;
 		}
-
+    function analyze(url) {
+     var params = {
+            // Request parameters
+            "language": "en",
+            "detectOrientation ": "true",
+        };
+      
+        $.ajax({
+            url: "https://api.projectoxford.ai/vision/v1/ocr?" + $.param(params),
+            beforeSend: function(xhrObj){
+                // Request headers
+                xhrObj.setRequestHeader("Content-Type","application/json");
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","900313fb426048dc9369d4661f07ee66");
+            },
+            type: "POST",
+            // Request body
+            data: '{"Url":"'+url+'"}'
+        })
+        .done(function(data) {
+            alert(JSON.stringify(data));
+        })
+        .fail(function(err) {
+            alert(JSON.stringify(err));
+        });
+    }
+    $('#submit').click(function(){
+        analyze($('#url').val());
+        console.log($('#url').val());
+    })
+    function postasetTest(){
+        	$.ajax({
+            type:"POST",
+            url: "http://localhost:3000/newSet",
+            success: function(msg) {
+            	window.location = msg.url;
+            },
+            error:function(error){
+            	alert('error');
+            	console.log(error);
+            }
+    	});
+        $('#test').click(function(){
+            postasetTest();
+        })
+    }
+    
 });
