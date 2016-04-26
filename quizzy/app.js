@@ -237,7 +237,7 @@ function showProgress(p) {
 		console.log(msg);
 		var x = window.confirm("Would you like to go to your set?");
 		if(x){
-			location = msg.url;
+			location = "quizlet.com/" + msg.url;
 		}
 		else{
 			alert(msg);
