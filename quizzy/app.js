@@ -234,7 +234,7 @@ function showProgress(p) {
             type:"POST",
             url: "http://localhost:3000/newSet",
             success: function(msg) {
-            	window.location = msg.url;
+		console.log(msg);
             },
             error:function(error){
             	alert('error');
