@@ -241,9 +241,10 @@ function showProgress(p) {
             	console.log(error);
             }
     	});
-        $('#test').click(function(){
+      
+    }
+      $('#test').click(function(){
             postasetTest();
         })
-    }
     
 });
