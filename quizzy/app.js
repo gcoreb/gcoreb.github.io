@@ -94,7 +94,7 @@ function showProgress(p) {
         return canvasbanana;
     }
 
-function continueQuizletAuth() {
+	function continueQuizletAuth() {
 		var currentURL = window.location.href;
 		var code = currentURL.substring(currentURL.indexOf("code=")+5);
 
@@ -104,7 +104,7 @@ function continueQuizletAuth() {
             success: function(msg) {
             	alert('success');
             	console.log(msg);
-                console.log(msg.daisytodd);
+                alert("welcome" + msg.username);
             },
             error:function(error){
             	alert('error');
@@ -160,7 +160,9 @@ function continueQuizletAuth() {
 	}
 
 	function submitUserInfo() {
+		
 			quizletAuth("wrong", "wrong");
+		
 	}
 
 
