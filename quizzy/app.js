@@ -1,13 +1,11 @@
 $(function(){
 
-var textFill = "";
+
 $("#recognizeButton").click(function(){
 		alert('pressed');
 		var canvas = document.getElementById('canvas2');
             Tesseract.recognize(canvas, {progress: showProgress, lang: 'eng'}).then(function (d) {
-				textFill = (d.text).replace(/(\r\n|\n|\r)/gm," ");
-				console.log(textFill);
-				dispTerms(textFill);
+                console.log(d.text);
             }, function (err) {
                 console.log(err);
             });
@@ -27,83 +25,20 @@ if(window.location.href.indexOf("code")!=-1){
 }
 var terms = [];
 var def = [];
-function dispTerms(text){
-	
-		 $('#confirmed').html(text);
-	         var words = $("#confirmed").text().split(" ");
-	         $("#confirmed").empty();
-	         $.each(words, function(i, v) {
-	            $("#confirmed").append($("<div class='noob'>").text(v));
-	         });
-	          $('#confirmed').click(function(){ 
-	         if (window.getSelection) { /* Firefox, Opera, Google Chrome and Safari */
-	var new_elem = document.createElement('strong'); 
-	             new_elem.setAttribute("class","highlighted");
-	var sel = window.getSelection ();
-	sel.modify('move','backward','word');
-	sel.modify('extend','forward','word');
-	var range = document.createRange();
-	range = sel.getRangeAt(0); /* get the text selected. Firefox supports multiple selections, but we will get the first */
-	txt = document.createTextNode(range.toString()); /* create a text node that contains the selected text */
-	new_elem.appendChild(txt); /* append the node to the strong element*/
-	range.deleteContents(); /* delete the current selection */
-	range.insertNode(new_elem); /* add the newly created element */
-	sel.removeAllRanges();
+
+function separateText(text) {
+	//this function could be where we do the seperating for temp purposes
+	var wordHeap = text.seperate(" ");
+	for(var i = 0; i < wordHeap,length; i+=2) {
+		terms.push(wordHeap[i]);
 	}
-	    
-	    })
+	for(var i = 1; i < wordHeap.length; i+=2){
+		def.push(wordHeap[i]);
+	}
+
+	createPostReqForSet();
 
 }
-   var sustring = "";
-var indecies = [];
-$('#clear').click(function(){
-	terms = [];
-	def= [];
-})
-$('#analyze').click(function(){
-         indecies = [];
-            $(".noob").each(function(i, obj){
-                if(obj.children.length > 0){
-         terms.push(obj.firstElementChild.innerHTML);
-                    indecies.push(i);
-                    }
-//                else{
-//                    def.push(this.innerHTML);
-//                } 
-     })
-            indecies.push($('.noob').size());
-         console.log($('.noob').size())
-            //indecies[0] = 1, indecies[1] = 5
-            var j = 0;
-         var d = 0;
-        while(j<indecies.length-1){
-            d= indecies[j];
-        while(d<indecies[j+1]-1){
-         sustring += " ";
-            sustring += $(".noob").eq(d+1).text();
-        d++;
-        }
-        def.push(sustring);
-            sustring = "";
-        j++;
-        }
-	createPostReqForSet();
-        
-     })
-// function separateText(text) {
-// 	// //this function could be where we do the seperating for temp purposes
-// 	// var wordHeap = text.seperate(" ");
-// 	// for(var i = 0; i < wordHeap,length; i+=2) {
-// 	// 	terms.push(wordHeap[i]);
-// 	// }
-// 	// for(var i = 1; i < wordHeap.length; i+=2){
-// 	// 	def.push(wordHeap[i]);
-// 	// }
-  
-
-// 	createPostReqForSet();
-
-// }
 
 function createPostReqForSet() {
 		continueQuizletAuth();
@@ -159,26 +94,18 @@ function showProgress(p) {
         return canvasbanana;
     }
 
-// jQuery.ajaxPrefilter(function(options) {
-//     if (options.crossDomain && jQuery.support.cors) {
-//         options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
-//     }
-// });
 	function continueQuizletAuth() {
 		var currentURL = window.location.href;
 		var code = currentURL.substring(currentURL.indexOf("code=")+5);
 
 		//alert('about to post req');
-		var url ="https://api.quizlet.com/oauth/token?grant_type=authorization_code&code="+code+"&redirect_uri=http://gcoreb.github.io/quizzy/analyze.html";
+		var url ="https://api.quizlet.com/oauth/token?grant_type=authorization_code&code="+code+"&redirect_uri=http://bryanchen.ml/quizzy/analyze.html";
 		 $.ajax({
             type:"POST",
-            headers: 
+            beforeSend: function (request)
             {
-               "Authorization": "Basic QQXakcxCJKyDQfkrppmuGr"
-             //    request.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Origin");
-	            // request.setRequestHeader("Access-Control-Allow-Headers", "X-Requested-With");
-	            // request.setRequestHeader("Access-Control-Allow-Origin", "*");
-	            // request.setRequestHeader("X-Requested-With", "*");
+                request.setRequestHeader("Authorization", "Basic NkROSGhNVnBlSDptNnNFZ05nUEY5UTdleEJWSGFlVGNL");
+                //request.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
             },
             url: url,
             success: function(msg) {
@@ -238,19 +165,15 @@ function showProgress(p) {
 	}
 
 	function submitUserInfo() {
-		var username = $("#username").val();
-		var pass = $("#password").val();
-		if(username==null || pass == null){
-			alert("Please enter full Quizlet credentials, otherwise we cannot make a set for you :(");
-		} else {
-			quizletAuth(username, pass);
-		}
+		
+			quizletAuth("wrong", "wrong");
+		
 	}
 
 
 	function quizletAuth(username, pass) {
 		var str = makeid();
-		var redirectURI = "https://quizlet.com/authorize?response_type=code&client_id=6DNHhMVpeH&scope=write_set&state="+str;		
+		var redirectURI = "https://quizlet.com/authorize?response_type=code&client_id=6DNHhMVpeH &scope=write_set&state="+str;		
 		var currentURL = window.location.href;
 		console.log(currentURL.indexOf("code"));
 		window.open(redirectURI,'auth time');
@@ -285,7 +208,3 @@ function showProgress(p) {
 		}
 
 });
-
-function choose() {
-	
-}
