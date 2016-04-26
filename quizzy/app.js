@@ -235,6 +235,13 @@ function showProgress(p) {
             url: "http://localhost:3000/newSet",
             success: function(msg) {
 		console.log(msg);
+		var x = window.confirm("Would you like to go to your set?");
+		if(x){
+			window.location = msg.url;
+		}
+		else{
+			alert(msg);
+		}
             },
             error:function(error){
             	alert('error');
