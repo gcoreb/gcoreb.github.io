@@ -2,7 +2,10 @@
 <html>
 <script>
 window.onblur = function(){
-  setTimeout(alert("No"), 3000);
+  setTimeout(function(){ alert("Hello"); }, 3000);
+}
+window.onfocus = function(){
+  clearTimeout();
 }
 </script>
 </html>
