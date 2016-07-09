@@ -1,0 +1,167 @@
+html, body{
+     -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+    height: 100%;
+    		margin: 0;
+    font-family: 'Raleway'
+}
+#main{
+		min-height: 100%; 
+      z-index: 1;
+    background-size: cover;
+    background-image: url(pexels-photo-min.jpg);
+    animation-name: slowblur;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: .5s;
+}
+#content{
+    color: white;
+     position: fixed;
+  right: 0;
+    left: 0;
+    margin: 0 auto;
+  z-index: 2;
+    top: 22%;
+    text-align: center;
+    height: 373px;
+    width: 606px;
+    border: solid 3px white;
+}
+#view{
+    position: absolute;
+    top: 135px;
+    bottom: 100px;
+    right: 100px;
+    left: 100px;
+    color: white;
+        display: inline;
+}
+#btn-left{
+    position: absolute;
+    height: 373px;
+    width: 50px;
+    border-right: solid 3px white;
+    transition: ease-in-out .2s;
+    bottom: 0px;
+}
+#btn-left:hover{
+    background: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+#btn-right{
+    height: 373px;
+    width: 50px;
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    border-left: solid 3px white;
+    transition: ease-in-out .2s;
+}
+#btn-right:hover{
+    background: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+.arrow{
+    position: absolute;
+    top: 130px;
+    bottom: 130px;
+    left: 10px;
+    right: 10px;
+}
+/* Nav Bar */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+li a  {
+  text-decoration: none;
+  color: white;
+  padding-right: 5%;
+    font-size: 18px;
+}
+.under{
+    border-bottom: solid 2px white;
+}
+.items{
+  float: right;
+  display: block;
+  text-align: center;
+  padding: 10px 10px;
+  margin-top: 37px;
+  margin-right: 1.5%;
+}
+#logo a{
+     float: left;
+  display: block;
+  text-align: center;
+  padding: 10px 10px;
+  margin-left: 30px;
+}
+#nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+#logo-img{
+    margin-top: 20px;
+    height: 50px;
+    width: 50px;
+    clip: rect(5px 5px 5px 5px);
+}
+#line{
+    position: fixed;
+    bottom: 0;
+    width: 230px;
+border-bottom: 30px solid white;
+    z-index: 2;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    transition: .2s ease-in-out;
+}
+#line:hover{
+    background: rgba(255,255,255,.75)
+}
+@keyframes lead{
+    from{border-bottom: 15px solid white}
+    to{border: 3px solid white; height: 50px; }
+} 
+@keyframes slowblur{
+    from{}
+    to{   -webkit-filter: blur(5px);
+  -moz-filter:  blur(5px) ;
+  -o-filter:  blur(5px) ;
+  -ms-filter: blur(5px);
+        filter:  blur(5px)}
+}
+.minButton{
+        transition: width 1s ease!important;
+    width: 0px!important;
+}
+.btn-down{
+    position: relative;
+    border: solid 3px white;
+    width: 606px;
+    height: 0px;
+    top: 372px;
+    transition:.2s ease-in-out;
+        bottom: -67px;
+    visibility: hidden;
+    right: 3px;
+}
+.btn-down:hover{
+    background: rgba(255,255,255,.75);
+    cursor: pointer;
+}
+.minButtonBottom{
+    transition: height 1s ease;
+        -webkit-transition: height 1.35s ease;
+    -moz-transition: height 1.35s ease;
+    -o-transition: height 1.35s ease;
+    transition: height 1.35s ease;
+    height: 60px;
+}
