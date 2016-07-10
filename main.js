@@ -1,13 +1,23 @@
 $(document).ready(function(){
+    var imgArray = [ 'pexels-photo-min.jpg','violin.jpg','clinic.jpg', 'berlinphil.jpg', 'theImage-min.jpg'];
+ 
+     function preload(arrayOfImages, callback) {
+    $(arrayOfImages).each(function () {
+        $('<img />').attr('src',this).appendTo('body').css('display','none');
+    });
+    callback();
+}
+    preload(imgArray,function(){
  window.onscroll = function () {
      console.log("here");window.scrollTo(0,0);
 
  };
-
+        $(".under").addClass("disabled");
+    
     $('.backgrounds').hide();
-     $(".scroll").click(function(event){  
+     $(".scroll").click(function(event){
+         $('.under').removeClass("disabled");
          window.onscroll=function(){};
-        event.preventDefault();
          var hasher = $(this.hash);
         $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500,function(){
             var currentTop = $(document).scrollTop();
@@ -39,15 +49,7 @@ $(document).ready(function(){
             }
         });
     });
-        var imgArray = [ 'pexels-photo-min.jpg','violin.jpg','clinic.jpg', 'berlinphil.jpg', 'theImage-min.jpg'];
-   function preload(arrayOfImages, callback) {
-    $(arrayOfImages).each(function () {
-        $('<img />').attr('src',this).appendTo('body').css('display','none');
-    });
-    callback();
-}
- 
-preload(imgArray,function(){
+        
     function restroy(){
          var el = $('#main');
     newone = el.clone(true);

@@ -81,7 +81,7 @@ ul {
 }
 li a  {
   text-decoration: none;
-  color: black;
+  color: lightgrey;
   padding-right: 5%;
     font-size: 18px;
 }
@@ -107,6 +107,7 @@ li a  {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 3;
 }
 #logo-img{
     margin-top: 20px;
@@ -189,4 +190,5 @@ border-bottom: 30px solid white;
 .stop-scrolling {
   overflow-y: hidden
 }*/
+a.disabled { cursor: not-allowed; pointer-events: none;}
 
