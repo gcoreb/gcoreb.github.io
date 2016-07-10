@@ -1,14 +1,53 @@
 $(document).ready(function(){
+ window.onscroll = function () {
+     console.log("here");window.scrollTo(0,0);
+
+ };
+
+    $('.backgrounds').hide();
+     $(".scroll").click(function(event){  
+         window.onscroll=function(){};
+        event.preventDefault();
+         var hasher = $(this.hash);
+        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500,function(){
+            var currentTop = $(document).scrollTop();
+             window.onscroll = function () {
+     console.log("here2");window.scrollTo(0,currentTop);
+
+ };
+            console.log(hasher);
+            if(hasher.selector=="#bio"){
+                $(".btn-down").removeClass("minButtonBottom");
+                $('.btn-down').hide();
+                $('#view').html($('#bioView').html());
+                $('.btn-down').show().addClass("minButtonBottom");
+                $('#pictures').show();
+                $('#downScroller').attr("href", "#pictures");
+            }
+            if(hasher.selector=="#pictures"){
+                 $(".btn-down").removeClass("minButtonBottom");
+                $('.btn-down').hide();
+                $('#view').html($('#picturesView').html());
+                $('.btn-down').show().addClass("minButtonBottom");
+                $('#contact').show();
+                $('#downScroller').attr("href", "#contact");
+            }
+            if(hasher.selector == "#contact"){
+   $('#view').html($('#contactView').html());
+                $(".btn-down").removeClass("minButtonBottom");
+                $('.btn-down').hide();
+            }
+        });
+    });
         var imgArray = [ 'pexels-photo-min.jpg','violin.jpg','clinic.jpg', 'berlinphil.jpg', 'theImage-min.jpg'];
-    function preloadimages(arr, callback){
-        var newimages=[];
-        for (var i=0; i<arr.length; i++){
-            newimages[i]=new Image()
-            newimages[i].src=arr[i]
-        }
-        callback();
-    }
-preloadimages(imgArray,function(){
+   function preload(arrayOfImages, callback) {
+    $(arrayOfImages).each(function () {
+        $('<img />').attr('src',this).appendTo('body').css('display','none');
+    });
+    callback();
+}
+ 
+preload(imgArray,function(){
     function restroy(){
          var el = $('#main');
     newone = el.clone(true);
@@ -53,7 +92,8 @@ setTimeout(function(){$('.btn-down').show().addClass("minButtonBottom")
 },1000)
             }
         ,500)
-           
+             $('#bio').show();
+             
          }
          
      })

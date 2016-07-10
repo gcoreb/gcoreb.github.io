@@ -3,9 +3,10 @@ html, body{
   -khtml-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-    height: 100%;
     		margin: 0;
-    font-family: 'Raleway'
+    font-family: 'Raleway';
+        height: 100%;
+
 }
 #main{
 		min-height: 100%; 
@@ -80,7 +81,7 @@ ul {
 }
 li a  {
   text-decoration: none;
-  color: white;
+  color: black;
   padding-right: 5%;
     font-size: 18px;
 }
@@ -165,3 +166,27 @@ border-bottom: 30px solid white;
     transition: height 1.35s ease;
     height: 60px;
 }
+
+.backgrounds{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+     animation-name: slowblur;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: .5s;
+}
+#bio{
+    background-image: url(violin.jpg);
+}
+#pictures{
+        background-image: url(berlinphil.jpg);
+}
+#contact{
+    background-image: url(pexels-photo-min.jpg);
+}
+/*
+.stop-scrolling {
+  overflow-y: hidden
+}*/
+
